@@ -1,8 +1,9 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-3 mb-3">
         <form class="row g-3 w-50 mx-auto">
+            <h2>Neem contact met ons op voor de offerte</h2>
             <div class="col-md-6">
                 <label for="inputFirstName" class="form-label">Voornaam</label>
                 <input type="text" class="form-control" id="inputFirstName">

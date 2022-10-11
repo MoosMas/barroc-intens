@@ -7,7 +7,17 @@
 </head>
 <body>
 
-@include('includes.nav')
+    @include('includes.nav')
 
-@include('includes.footer')
+        <div class="container">
+                <div class="col-md-8">
+                    <div class="center">
+                        @yield('content')
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+            @include('includes.footer')
+        </div>
 </body>
+</html>

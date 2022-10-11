@@ -1,12 +1,12 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
     <!-- Container wrapper -->
     <div class="container-fluid">
   
       <!-- Collapsible wrapper -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#"><img src="{{ asset('img/logo2.png') }}" width="50px" alt="logo">Barroc <b>intens</b></a>
+        <a class="navbar-brand mt-2 mt-lg-0" href="#"><img src="{{ asset('img/logo2.png') }}" width="50px" alt="logo">Barroc <b>intens</a>
       </div>
       <!-- Collapsible wrapper -->
 

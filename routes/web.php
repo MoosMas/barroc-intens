@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('pages/welcome');
 });
 
+Route::get('/pages/guest/contact', function () {
+    return view('pages/guest/contact');
+});
+
 Route::get('/dashboard', function () {
     return view('pages/admin/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

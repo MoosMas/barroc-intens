@@ -5,12 +5,12 @@
         <form class="row g-3 w-50 mx-auto">
             <h2>Neem contact met ons op voor de offerte</h2>
             <div class="col-md-6">
-                <label for="inputFirstName" class="form-label">Voornaam</label>
-                <input type="text" class="form-control" id="inputFirstName">
+                <label for="inputName" class="form-label">Naam</label>
+                <input type="text" class="form-control" id="inputName">
             </div>
             <div class="col-md-6">
-                <label for="inputLastName" class="form-label">Achternaam</label>
-                <input type="text" class="form-control" id="inputLastName">
+                <label for="inputCompanyName" class="form-label">Bedrijfsnaam</label>
+                <input type="text" class="form-control" id="inputCompanyName">
             </div>
             <div class="col-md-6">
                 <label for="inputEmail" class="form-label">Email</label>
@@ -19,10 +19,6 @@
             <div class="col-md-6">
                 <label for="inputPhonenumber" class="form-label">Telefoonnummer</label>
                 <input type="tel" class="form-control" id="inputPhonenumber" placeholder="06123456789">
-            </div>
-            <div class="col-12">
-                <label for="inputCompanyName" class="form-label">Bedrijfsnaam</label>
-                <input type="text" class="form-control" id="inputCompanyName">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Opmerkingen</label>

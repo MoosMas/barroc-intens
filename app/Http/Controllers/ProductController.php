@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages/admin/products/index');
     }
 
     /**
@@ -23,7 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/admin/products/create');
     }
 
     /**
@@ -45,7 +45,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages/admin/products/show');
     }
 
     /**
@@ -56,7 +56,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('pages/admin/products/edit');
     }
 
     /**

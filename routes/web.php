@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,8 @@ Route::get('/dashboard', function () {
     return view('pages/admin/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('contacts', ContactController::class);
+});
+
+require __DIR__ . '/auth.php';

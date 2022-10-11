@@ -6,7 +6,7 @@
       <!-- Collapsible wrapper -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">LOGO</a>
+        <a class="navbar-brand mt-2 mt-lg-0" href="#"><img src="{{ asset('img/logo2.png') }}" width="50px" alt="logo">Barroc <b>intens</b></a>
       </div>
       <!-- Collapsible wrapper -->
 

@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@include('content')
+@section('content')
     <table class="table table-hover">
         <thead>
         <tr>

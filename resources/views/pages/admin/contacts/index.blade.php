@@ -16,6 +16,7 @@
 				<th>Email</th>
 				<th>Telefoonnummer</th>
 				<th>Bericht</th>
+				<th class="sorter-false"></th>
 			</tr>
 		</thead>
 
@@ -28,6 +29,11 @@
 					<td>{{$contact->email}}</td>
 					<td>{{$contact->phone}}</td>
 					<td>{{$contact->message}}</td>
+					<td class="text-center">
+						<a href="{{route('contacts.edit', $contact)}}" class="btn btn-sm btn-outline-secondary">
+							<i class="bi bi-pencil-fill"></i>
+						</a>
+					</td>
 				</tr>
 			@endforeach
 		</tbody>

@@ -20,4 +20,4 @@
         integrity="sha512-dj/9K5GRIEZu+Igm9tC16XPOTz0RdPk9FGxfZxShWf65JJNU2TjbElGjuOo3EhwAJRPhJxwEJ5b+/Ouo+VqZdQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-@vite(['resources/css/tablesorter.css'])
+@vite(['resources/css/tablesorter.css', 'resources/js/app.js'])

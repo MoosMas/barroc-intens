@@ -13,6 +13,7 @@
 * Full views in `resources/views/pages`
 
 ## Naming conventions
+* Path to views should use `.` instead of `/`. For example: `pages.admin.contacts.index`
 * Follow naming conventions in [this](https://github.com/alexeymezenin/laravel-best-practices#follow-laravel-naming-conventions) table
 
 ## Packages

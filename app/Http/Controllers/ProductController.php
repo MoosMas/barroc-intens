@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -13,7 +14,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('pages/admin/products/index');
+
+        $products = Product::all();
+        return view('pages/admin/products/index' ,[
+            'products' => $products
+        ]);
     }
 
     /**
@@ -34,7 +39,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $products = Product::create( $request->except('_token') );
+        return redirect()
+            ->route('pages/admin/products/index');
     }
 
     /**

@@ -3,8 +3,9 @@
 @section('content')
 	<div class="pt-5 d-flex justify-content-between align-items-center">
 		<h1>Producten</h1>
-		<div class="w-25 d-flex justify-content-end">
-			<input class="search form-control w-75" type="search" data-column="all" placeholder="Zoeken...">
+		<div class="w-50 d-flex justify-content-around">
+			<input class="search form-control w-50" type="search" data-column="all" placeholder="Zoeken...">
+			<a href="{{route('products.create')}}" class="btn btn-primary">Nieuw product </a>
 		</div>
 	</div>
 

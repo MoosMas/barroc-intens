@@ -28,7 +28,7 @@
 					<td>{{$product->name}}</td>
 					<td class="table-longtext-column">{{Str::limit($product->description, 50)}}</td>
 					<td>&euro;{{$product->price}}</td>
-					<td>{{$product->category}}</td>
+					<td>{{$product->category->name}}</td>
 					<td class="text-center">
 						<a href="{{route('products.edit', $product)}}" class="btn btn-sm btn-outline-secondary">
 							<i class="bi bi-pencil-fill"></i>

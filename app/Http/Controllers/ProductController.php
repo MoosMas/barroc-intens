@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -28,7 +29,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('pages/admin/products/create');
+        $categories = ProductCategory::all();
+        
+        return view('pages/admin/products/create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -41,7 +46,7 @@ class ProductController extends Controller
     {
         $products = Product::create( $request->except('_token') );
         return redirect()
-            ->route('pages/admin/products');
+            ->route('products.index');
     }
 
     /**

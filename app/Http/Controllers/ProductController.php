@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
 
         $products = Product::all();
-        return view('pages.admin.products.index' ,[
+        return view('pages/admin/products/index' ,[
             'products' => $products
         ]);
     }
@@ -28,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.products.create');
+        return view('pages/admin/products/create');
     }
 
     /**
@@ -41,7 +41,7 @@ class ProductController extends Controller
     {
         $products = Product::create( $request->except('_token') );
         return redirect()
-            ->route('pages.admin.products');
+            ->route('pages/admin/products');
     }
 
     /**
@@ -53,7 +53,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $products = Product::findOrFail($id);
-        return view('pages.admin.products',[
+        return view('pages/admin/products',[
             'product' => $products
         ]);
     }
@@ -67,7 +67,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $products = Product::findOrFail($id);
-            return view('pages.admin.products.edit',[
+            return view('pages/admin/products/edit',[
                 'product' => $products
             ]);
     }
@@ -83,7 +83,7 @@ class ProductController extends Controller
     {
         $products =Product::findOrFail($id);
         $products->update($request->except(['_token', '_method']));
-        return redirect('pages.admin.products');
+        return redirect('admin/products');
 }
 
     /**

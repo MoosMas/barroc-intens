@@ -6,22 +6,27 @@
     <form method="post" action="{{route('products.update', $product)}}">
         @csrf
         @method('PUT')
+
         <div class="form-group">
+            <div class="p-3"></div>
             <label for="">Title</label>
             <input value="{{$product->name}}" type="text" name="name" class="form-control" >
         </div>
-
+        <div class="p-3"></div>
         <div class="form-group">
-            <label for="">Description</label>
-            <textarea name="description" class="form-control" id="" cols="30" rows="10">{{$product->description}}</textarea>
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea name="description" class="form-control" id="exampleFormControlTextarea1" cols="30" rows="10">{{$product->description}}</textarea>
         </div>
 
+        <div class="p-3"></div>
         <div class="form-group">
             <label for="">price</label>
             <input value="{{$product->price}}" type="number" name="price" class="form-control">
         </div>
 
+        <div class="p-3"></div>
         <input type="submit" value="Update Item" class="btn btn-primary">
+        <div class="p-3"></div>
 
     </form>
 @endsection

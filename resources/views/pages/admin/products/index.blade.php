@@ -1,20 +1,56 @@
 @extends('layouts.base')
 
 @section('content')
+	<div class="pt-5 d-flex justify-content-between align-items-center">
+		<h1>Producten</h1>
+		<div class="w-25 d-flex justify-content-end">
+			<input class="search form-control w-75" type="search" data-column="all" placeholder="Zoeken...">
+		</div>
+	</div>
 
-    @foreach( $products as $product )
-        <div class="product">
-            <img src="img/logo.png" alt="logo">
-            <h5>{{ $product->name }} </h5>
-            <p>{{ $product->description }}</p>
+	<table id="data-table" class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Naam</th>
+				<th>Beschrijving</th>
+				<th>Prijs</th>
+				<th>Categorie</th>
+				<th class="sorter-false"></th>
+			</tr>
+		</thead>
 
-            <a href="{{route('products.create')}}"><button type="button" class="btn btn-dark">Aanmaken</button></a>
-            <a href="{{route('products.edit', $product)}}"><button type="button" class="btn btn-info">Bewerken</button></a>
-            <form method="POST" action="{{route('products.destroy', $product)}}">
-                @csrf
-                @method('delete')
-                <input class="btn btn-danger" type="submit" value="Verwijderen">
-            </form>
-        </div>
-    @endforeach
+		<tbody class="table-group-divider">
+			@foreach($products as $product)
+				<tr>
+					<td>{{$product->id}}</td>
+					<td>{{$product->name}}</td>
+					<td class="table-longtext-column">{{Str::limit($product->description, 50)}}</td>
+					<td>&euro;{{$product->price}}</td>
+					<td>{{$product->category}}</td>
+					<td class="text-center">
+						<a href="{{route('products.edit', $product)}}" class="btn btn-sm btn-outline-secondary">
+							<i class="bi bi-pencil-fill"></i>
+						</a>
+					</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+
+	<script type="module">
+		$( function () {
+			$( '#data-table' ).tablesorter( {
+				theme: '',
+				widgets: ["filter", "saveSort" ],
+				widgetOptions: {
+					filter_external: '.search',
+					filter_defaultFilter: { 1: '~{query}' },
+					filter_columnFilters: false,
+					filter_saveFilters: true,
+					saveSort: true,
+				}
+			} );
+		});
+	</script>
 @endsection

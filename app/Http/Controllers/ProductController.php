@@ -39,7 +39,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $products = Product::create( $request->except('_token') );
+        Product::create( $request->except('_token') );
         return redirect()
             ->route('pages/admin/products/index');
     }
@@ -52,7 +52,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return view('pages/admin/products/show');
+        $products = Product::findOrFail($id);
+        return view('pages/admin/products/show',[
+            'product' => $products
+        ]);
     }
 
     /**
@@ -63,7 +66,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return view('pages/admin/products/edit');
+        $products = Product::findOrFail($id);
+            return view('pages/admin/products/edit',[
+                'product' => $products
+            ]);
     }
 
     /**
@@ -75,8 +81,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $products =Product::findOrFail($id);
+        $products->update($request->except(['_token', '_method']));
+        return redirect('/admin/products');
+}
 
     /**
      * Remove the specified resource from storage.

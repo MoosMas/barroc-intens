@@ -26,6 +26,9 @@
 				<a class="nav-link" href="{{route('contacts.index')}}">Contactaanvragen</a>
 			</li>
 			<li class="nav-item">
+				<a class="nav-link" href="{{route('maintenance_requests.index')}}">Storingsaanvragen</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
 			</li>
 			<li class="nav-item">

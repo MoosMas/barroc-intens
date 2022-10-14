@@ -28,8 +28,8 @@
 			<label for="category" class="form-label">Categorie</label>
 			<select class="form-select" id="category" name="product_category_id">
 				<option selected disabled>Selecteer een categorie</option>
-				@foreach($categories as $categorie)
-					<option value="{{$categorie->id}}">{{$categorie->name}}</option>
+				@foreach($categories as $category)
+					<option value="{{$category->id}}">{{$category->name}}</option>
 				@endforeach
 			</select>
 		</div>

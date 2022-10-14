@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ContactController;
 use \App\Http\Controllers\ProductController;
+use \App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::get('/dashboard', function () {
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('contacts', ContactController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('companies', CompanyController::class);
 });
 
 require __DIR__ . '/auth.php';

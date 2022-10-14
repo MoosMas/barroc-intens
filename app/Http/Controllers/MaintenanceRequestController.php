@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductCategory;
 use Illuminate\Http\Request;
-use App\Models\Product;
 
-class ProductController extends Controller
+class MaintenanceRequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-
-        $products = Product::all();
-        return view('pages/admin/products/index' ,[
-            'products' => $products
-        ]);
+        //
     }
 
     /**
@@ -29,11 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = ProductCategory::all();
-        
-        return view('pages/admin/products/create', [
-            'categories' => $categories
-        ]);
+        //
     }
 
     /**
@@ -44,9 +34,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $products = Product::create( $request->except('_token') );
-        return redirect()
-            ->route('products.index');
+        //
     }
 
     /**
@@ -57,10 +45,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $products = Product::findOrFail($id);
-        return view('pages/admin/products',[
-            'product' => $products
-        ]);
+        //
     }
 
     /**
@@ -71,13 +56,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $products = Product::findOrFail($id);
-        $categories = ProductCategory::all();        
-        
-            return view('pages/admin/products/edit',[
-                'product' => $products,
-                'categories' => $categories
-            ]);
+        //
     }
 
     /**
@@ -89,10 +68,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $products =Product::findOrFail($id);
-        $products->update($request->except(['_token', '_method']));
-        return redirect('admin/products');
-}
+        //
+    }
 
     /**
      * Remove the specified resource from storage.

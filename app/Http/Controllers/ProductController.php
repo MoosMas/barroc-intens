@@ -72,8 +72,11 @@ class ProductController extends Controller
     public function edit($id)
     {
         $products = Product::findOrFail($id);
+        $categories = ProductCategory::all();        
+        
             return view('pages/admin/products/edit',[
-                'product' => $products
+                'product' => $products,
+                'categories' => $categories
             ]);
     }
 

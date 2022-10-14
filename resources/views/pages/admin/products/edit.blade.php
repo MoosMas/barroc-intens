@@ -1,41 +1,42 @@
 @extends('layouts.base')
 
 @section('content')
-
+    <h1>Producten</h1>
+    <h2>Product bewerken</h2>
     <form action=""></form>
     <form method="post" action="{{route('products.update', $product)}}">
         @csrf
         @method('PUT')
 
-        <div class="form-group">
-            <div class="p-3"></div>
-            <label for="">Title</label>
-            <input value="{{$product->name}}" type="text" name="name" class="form-control" >
-        </div>
-        <div class="p-3"></div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Description</label>
-            <textarea name="description" class="form-control" id="exampleFormControlTextarea1" cols="30" rows="10">{{$product->description}}</textarea>
-        </div>
+	    <div class="form-group mb-3">
+		    <label for="name" class="form-label">Productnaam</label>
+		    <input type="text" name="name" class="form-control" id="name" value="{{$product->name}}">
+	    </div>
 
-        <div class="p-3"></div>
-        <div class="form-group">
-            <label for="">price</label>
-            <input value="{{$product->price}}" type="number" name="price" class="form-control">
-        </div>
+	    <div class="form-group mb-3">
+		    <label for="description" class="form-label">Beschrijving</label>
+		    <textarea name="description" class="form-control" id="description" cols="30" rows="5">{{$product->description}}</textarea>
+	    </div>
 
-        <div class="form-group mb-3">
-            <select class="form-select" id="category" name="product_category_id">
-                <option selected disabled>Selecteer een categorie</option>
-                @foreach($products as $product)
-                    <option value="{{$product->id}}">{{$product->product_category_id}}</option>
-            </select>
-            @endforeach
-        </div>
+	    <div class="form-group mb-3">
+		    <label for="price" class="form-label">Prijs</label>
+		    <div class="input-group">
+			    <span class="input-group-text">&euro;</span>
+			    <input type="text" name="price" class="form-control" value="{{$product->price}}">
+		    </div>
+	    </div>
 
-        <div class="p-3"></div>
-        <input type="submit" value="Update Item" class="btn btn-primary">
-        <div class="p-3"></div>
+	    <div class="form-group mb-3">
+		    <label for="category" class="form-label">Categorie</label>
+		    <select class="form-select" id="category" name="product_category_id">
+			    <option selected disabled>Selecteer een categorie</option>
+			    @foreach($categories as $category)
+				    <option value="{{$category->id}}" @if($product->category->id == $category->id) selected @endif>{{$category->name}}</option>
+			    @endforeach
+		    </select>
+	    </div>
+	    
+	    <input type="submit" value="Save Item" class="btn btn-primary">
 
     </form>
 @endsection

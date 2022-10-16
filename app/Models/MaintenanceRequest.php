@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class MaintenanceRequest extends Model
 {
     use HasFactory;
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id');
+    }
 }

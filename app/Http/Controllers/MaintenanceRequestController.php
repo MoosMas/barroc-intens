@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MaintenanceRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MaintenanceRequestController extends Controller
 {
@@ -28,7 +29,7 @@ class MaintenanceRequestController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.guest.maintenance.create');
     }
 
     /**
@@ -39,7 +40,14 @@ class MaintenanceRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $maintenance_request = new MaintenanceRequest();
+        $maintenance_request->company_id = Auth::user()->company->id;
+        $maintenance_request->title = $request->title;
+        $maintenance_request->remark = $request->remark;
+        $maintenance_request->save();
+        
+        return redirect()
+            ->route('maintenance.index');
     }
 
     /**

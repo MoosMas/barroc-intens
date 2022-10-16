@@ -16,7 +16,7 @@ class MaintenanceRequestController extends Controller
     {
         $requests = MaintenanceRequest::all();
         
-        return view('pages.admin.maintenance_requests.index', [
+        return view('pages.admin.maintenance.index', [
             'requests' => $requests
         ]);
     }

@@ -27,7 +27,7 @@
 					<td class="table-longtext-column">{{Str::limit($request->remark, 50)}}</td>
 					<td>{{$request->date_added}}</td>
 					<td class="text-center">
-						<a href="{{route('maintenance_requests.edit', $request)}}" class="btn btn-sm btn-outline-secondary">
+						<a href="{{route('maintenance.edit', $request)}}" class="btn btn-sm btn-outline-secondary">
 							<i class="bi bi-pencil-fill"></i>
 						</a>
 					</td>

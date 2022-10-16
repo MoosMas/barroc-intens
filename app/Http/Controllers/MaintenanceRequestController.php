@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MaintenanceRequest;
 use Illuminate\Http\Request;
 
 class MaintenanceRequestController extends Controller
@@ -13,7 +14,11 @@ class MaintenanceRequestController extends Controller
      */
     public function index()
     {
-        //
+        $requests = MaintenanceRequest::all();
+        
+        return view('pages.admin.maintenance_requests.index', [
+            'requests' => $requests
+        ]);
     }
 
     /**

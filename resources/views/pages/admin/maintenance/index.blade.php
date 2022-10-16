@@ -3,7 +3,17 @@
 @section('content')
 	<div class="pt-5 d-flex justify-content-between align-items-center">
 		<h1>Storingsaanvragen</h1>
-		<div class="w-50 d-flex justify-content-end">
+		
+		<div class="w-50 d-flex justify-content-end align-items-center">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="#"><i class="bi bi-list"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#"><i class="bi bi-calendar3"></i></a>
+				</li>
+			</ul>
+			
 			<input class="search form-control w-50" type="search" data-column="all" placeholder="Zoeken...">
 		</div>
 	</div>

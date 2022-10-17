@@ -20,7 +20,6 @@ return new class extends Migration
                 ->on('companies');
             $table->string('title');
             $table->longText('remark');
-            $table->dateTime('date_added');
             $table->timestamps();
         });
     }

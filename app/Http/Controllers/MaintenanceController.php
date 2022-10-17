@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MaintenanceRequest;
+use App\Models\Maintenance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class MaintenanceRequestController extends Controller
+class MaintenanceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class MaintenanceRequestController extends Controller
      */
     public function index()
     {
-        $requests = MaintenanceRequest::all();
+        $requests = Maintenance::all();
         
         return view('pages.admin.maintenance.index', [
             'requests' => $requests
@@ -40,7 +40,7 @@ class MaintenanceRequestController extends Controller
      */
     public function store(Request $request)
     {
-        $maintenance_request = new MaintenanceRequest();
+        $maintenance_request = new Maintenance();
         $maintenance_request->company_id = Auth::user()->company->id;
         $maintenance_request->title = $request->title;
         $maintenance_request->remark = $request->remark;

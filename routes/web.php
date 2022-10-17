@@ -25,6 +25,10 @@ Route::get('/pages/guest/contact', function () {
     return view('pages/guest/contact');
 });
 
+Route::get('maintenance/create', function () {
+    return view('pages.guest.maintenance.create');
+});
+
 Route::get('/dashboard', function () {
     return view('pages/admin/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

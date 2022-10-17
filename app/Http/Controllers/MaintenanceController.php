@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductCategory;
+use App\Models\Maintenance;
 use Illuminate\Http\Request;
-use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
-class ProductController extends Controller
+class MaintenanceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-
-        $products = Product::all();
-        return view('pages/admin/products/index' ,[
-            'products' => $products
+        $requests = Maintenance::all();
+        
+        return view('pages.admin.maintenance.index', [
+            'requests' => $requests
         ]);
     }
 
@@ -29,11 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = ProductCategory::all();
-
-        return view('pages/admin/products/create', [
-            'categories' => $categories
-        ]);
+        return view('pages.guest.maintenance.create');
     }
 
     /**
@@ -44,9 +40,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $products = Product::create( $request->except('_token') );
+        $maintenance_request = new Maintenance();
+        $maintenance_request->company_id = Auth::user()->company->id;
+        $maintenance_request->title = $request->title;
+        $maintenance_request->remark = $request->remark;
+        $maintenance_request->save();
+        
         return redirect()
-            ->route('products.index');
+            ->route('maintenance.index');
     }
 
     /**
@@ -57,10 +58,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $products = Product::findOrFail($id);
-        return view('pages/admin/products',[
-            'product' => $products
-        ]);
+        //
     }
 
     /**
@@ -71,13 +69,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $products = Product::findOrFail($id);
-        $categories = ProductCategory::all();
-
-            return view('pages/admin/products/edit',[
-                'product' => $products,
-                'categories' => $categories
-            ]);
+        //
     }
 
     /**
@@ -89,10 +81,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $products =Product::findOrFail($id);
-        $products->update($request->except(['_token', '_method']));
-        return redirect('admin/products');
-}
+        //
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -102,8 +92,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::destroy($id);
-        return redirect()
-            ->route('products.index');
+        //
     }
 }

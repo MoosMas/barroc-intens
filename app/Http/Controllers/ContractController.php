@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MaintenanceRequest;
 use Illuminate\Http\Request;
 
-class MaintenanceRequestController extends Controller
+class ContractController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +13,7 @@ class MaintenanceRequestController extends Controller
      */
     public function index()
     {
-        $requests = MaintenanceRequest::all();
-        
-        return view('pages.admin.maintenance.index', [
-            'requests' => $requests
-        ]);
+        //
     }
 
     /**

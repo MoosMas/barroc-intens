@@ -35,7 +35,17 @@
 			    @endforeach
 		    </select>
 	    </div>
-	    
+
+        <div class="buttons d-flex">
+            <a href="{{ route ('products.edit', $product)}}" class="btn btn-warning">Edit</a>
+            <form action=""></form>
+            <form method="POST" action="{{route('products.destroy', $product)}}">
+                @csrf
+                @method('delete')
+                <input class="btn btn-danger" type="submit" value="Delete">
+            </form>
+        </div>
+
 	    <input type="submit" value="Save Item" class="btn btn-primary">
 
     </form>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ContactController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\CompanyController;
-use \App\Http\Controllers\MaintenanceRequestController;
+use \App\Http\Controllers\MaintenanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +25,7 @@ Route::get('/pages/guest/contact', function () {
     return view('pages/guest/contact');
 });
 
-Route::get('maintenance/create', function () {
-    return view('pages.guest.maintenance.create');
-});
+Route::get('/maintenance/create', [MaintenanceController::class, 'create']);
 
 Route::get('/dashboard', function () {
     return view('pages/admin/dashboard');
@@ -37,7 +35,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('contacts', ContactController::class);
     Route::resource('products', ProductController::class);
     Route::resource('companies', CompanyController::class);
-    Route::resource('maintenance', MaintenanceRequestController::class);
+    Route::resource('maintenance', MaintenanceController::class);
 });
 
 require __DIR__ . '/auth.php';

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('company_id')
                 ->references('id')
                 ->on('companies');
+            $table->string('title');
             $table->longText('remark');
-            $table->dateTime('date_added');
             $table->timestamps();
         });
     }

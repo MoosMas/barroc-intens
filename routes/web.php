@@ -5,6 +5,7 @@ use \App\Http\Controllers\ContactController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\CompanyController;
 use \App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('products', ProductController::class);
     Route::resource('companies', CompanyController::class);
     Route::resource('maintenance', MaintenanceController::class);
+    Route::resource('users', RoleController::class);
 });
 
 require __DIR__ . '/auth.php';

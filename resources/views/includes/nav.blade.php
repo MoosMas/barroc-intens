@@ -28,6 +28,11 @@
 			<li class="nav-item">
 				<a class="nav-link" href="{{route('maintenance.index')}}">Storingsaanvragen</a>
 			</li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('users.index')}}">Gebruiker</a>
+            </li>
+
+
 			<li class="nav-item">
 				<a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
 			</li>

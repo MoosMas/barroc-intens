@@ -30,7 +30,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = ProductCategory::all();
-        
+
         return view('pages/admin/products/create', [
             'categories' => $categories
         ]);
@@ -72,8 +72,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $products = Product::findOrFail($id);
-        $categories = ProductCategory::all();        
-        
+        $categories = ProductCategory::all();
+
             return view('pages/admin/products/edit',[
                 'product' => $products,
                 'categories' => $categories
@@ -102,6 +102,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::destroy($id);
+        return redirect()
+            ->route('products.index');
     }
 }

@@ -20,4 +20,9 @@
         integrity="sha512-dj/9K5GRIEZu+Igm9tC16XPOTz0RdPk9FGxfZxShWf65JJNU2TjbElGjuOo3EhwAJRPhJxwEJ5b+/Ouo+VqZdQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<!-- Fullcalendar -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/nl.js"></script>
+
 @vite(['resources/css/tablesorter.css', 'resources/js/app.js'])

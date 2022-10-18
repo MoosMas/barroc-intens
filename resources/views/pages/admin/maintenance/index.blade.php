@@ -3,17 +3,21 @@
 @section('content')
 	<div class="pt-5 d-flex justify-content-between align-items-center">
 		<h1>Storingsaanvragen</h1>
-		
+
 		<div class="w-50 d-flex justify-content-end align-items-center">
-			<ul class="nav nav-pills">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#"><i class="bi bi-list"></i></a>
+			<ul class="nav nav-pills" id="pills-tab" role="tablist">
+				<li class="nav-item" role="presentation">
+					<button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+					        type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i
+								class="bi bi-list"></i></button>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#"><i class="bi bi-calendar3"></i></a>
+				<li class="nav-item" role="presentation">
+					<button class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill"
+					        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+					        aria-selected="false"><i class="bi bi-calendar3"></i></button>
 				</li>
 			</ul>
-			
+
 			<input class="search form-control w-50" type="search" data-column="all" placeholder="Zoeken...">
 		</div>
 	</div>

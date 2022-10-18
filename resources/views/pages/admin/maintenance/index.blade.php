@@ -51,10 +51,30 @@
 	</table>
 
 	<script type="module">
+		document.addEventListener( 'DOMContentLoaded', function () {
+			let events = {!! json_encode($requests) ?? [] !!};
+			let calendarEl = document.getElementById( 'calendar' );
+			let calendar = new FullCalendar.Calendar( calendarEl, {
+				initialView: 'dayGridMonth',
+				themeSystem: 'bootstrap5',
+				locale: 'nl',
+				eventTimeFormat: {
+					hour: '2-digit',
+					hour12: false,
+					minute: '2-digit',
+				},
+				eventClick: ( info ) => {
+					window.open( '{{url('admin/maintenance')}}' + `/${ info.event.id }` );
+				},
+				events: events
+			} );
+			calendar.render();
+		} );
+
 		$( function () {
 			$( '#data-table' ).tablesorter( {
 				theme: '',
-				widgets: ["filter", "saveSort" ],
+				widgets: [ "filter", "saveSort" ],
 				widgetOptions: {
 					filter_external: '.search',
 					filter_defaultFilter: { 1: '~{query}' },
@@ -62,7 +82,7 @@
 					filter_saveFilters: true,
 					saveSort: true,
 				}
-			} );
-		});
+			} )
+		} );
 	</script>
 @endsection

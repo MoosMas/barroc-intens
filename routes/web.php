@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ContactController;
+use \App\Http\Controllers\ContractController;
+use \App\Http\Controllers\InvoiceController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\CompanyController;
 use \App\Http\Controllers\MaintenanceController;
@@ -34,6 +36,8 @@ Route::get('/dashboard', function () {
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('contacts', ContactController::class);
+    Route::resource('contracts', ContractController::class);
+    Route::resource('invoices', InvoiceController::class);
     Route::resource('products', ProductController::class);
     Route::resource('companies', CompanyController::class);
     Route::resource('maintenance', MaintenanceController::class);

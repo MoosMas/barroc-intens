@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CustomInvoice;
+use App\Models\Product;
+use App\Models\Company;
+use Illuminate\Support\Facades\Auth;
 
 class InvoiceController extends Controller
 {
@@ -13,7 +17,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.admin.finance.invoice.index');
     }
 
     /**
@@ -23,7 +27,13 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all();
+        $companies = Company::all();
+
+        return view('pages.admin.finance.invoice.create', [
+            'products' => $products,
+            'companies' => $companies
+        ]);
     }
 
     /**
@@ -34,7 +44,12 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $custom_invoice = new CustomInvoice();
+        $custom_invoice->date = $request->date;
+        $custom_invoice->company_id = Auth::user()->company->id;
+        $custom_invoice->save();
+
+        return view('pages.admin.finance.invoice.index');
     }
 
     /**

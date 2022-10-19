@@ -22,33 +22,37 @@
 		</div>
 	</div>
 
-	<table id="data-table" class="table table-striped table-hover">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Bedrijf</th>
-				<th>Beschrijving</th>
-				<th>Datum aangemaakt</th>
-				<th class="sorter-false"></th>
-			</tr>
-		</thead>
+	<div class="tab-content" id="pills-tabContent">
+		<div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+			<table id="data-table" class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Bedrijf</th>
+						<th>Beschrijving</th>
+						<th>Datum aangemaakt</th>
+						<th class="sorter-false"></th>
+					</tr>
+				</thead>
 
-		<tbody class="table-group-divider">
-			@foreach($requests as $request)
-				<tr>
-					<td>{{$request->id}}</td>
-					<td>{{$request->company->name}}</td>
-					<td class="table-longtext-column">{{Str::limit($request->remark, 50)}}</td>
-					<td>{{$request->date_added}}</td>
-					<td class="text-center">
-						<a href="{{route('maintenance.edit', $request)}}" class="btn btn-sm btn-outline-secondary">
-							<i class="bi bi-pencil-fill"></i>
-						</a>
-					</td>
-				</tr>
-			@endforeach
-		</tbody>
-	</table>
+				<tbody class="table-group-divider">
+					@foreach($requests as $request)
+						<tr>
+							<td>{{$request->id}}</td>
+							<td>{{$request->company->name}}</td>
+							<td class="table-longtext-column">{{Str::limit($request->remark, 50)}}</td>
+							<td>{{$request->created_at}}</td>
+							<td class="text-center">
+								<a href="{{route('maintenance.edit', $request)}}"
+								   class="btn btn-sm btn-outline-secondary">
+									<i class="bi bi-pencil-fill"></i>
+								</a>
+							</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
 
 		<div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
 		     tabindex="0">

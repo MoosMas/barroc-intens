@@ -50,6 +50,14 @@
 		</tbody>
 	</table>
 
+		<div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+		     tabindex="0">
+			<div id="calendar">
+
+			</div>
+		</div>
+	</div>
+
 	<script type="module">
 		document.addEventListener( 'DOMContentLoaded', function () {
 			let events = {!! json_encode($requests) ?? [] !!};

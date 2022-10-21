@@ -73,7 +73,11 @@ class MaintenanceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $maintenance = Maintenance::find($id);
+        
+        return view('pages.admin.maintenance.edit', [
+            'maintenance' => $maintenance
+        ]);
     }
 
     /**

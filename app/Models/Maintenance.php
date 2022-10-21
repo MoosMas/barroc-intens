@@ -11,6 +11,10 @@ class Maintenance extends Model
 
     protected $table = 'maintenance_appointments';
     
+    protected $casts = [
+        'start' => 'datetime'
+    ];
+    
     public function company()
     {
         return $this->belongsTo(Company::class, 'company_id');

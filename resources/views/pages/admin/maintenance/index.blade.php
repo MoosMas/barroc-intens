@@ -5,16 +5,17 @@
 		<h1>Storingsaanvragen</h1>
 
 		<div class="w-50 d-flex justify-content-end align-items-center">
-			<ul class="nav nav-pills" id="pills-tab" role="tablist">
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
 				<li class="nav-item" role="presentation">
-					<button class="nav-link active" id="pills-table-tab" data-bs-toggle="pill" data-bs-target="#pills-table"
-					        type="button" role="tab" aria-controls="pills-table" aria-selected="true"><i
-								class="bi bi-list"></i></button>
+					<button class="nav-link" id="tabs-table-tab" data-bs-toggle="tab" data-bs-target="#tabs-table"
+					        type="button" role="tab" aria-controls="tabs-table" aria-selected="true">Nog in te plannen
+					</button>
 				</li>
 				<li class="nav-item" role="presentation">
-					<button class="nav-link" id="pills-calendar-tab" data-bs-toggle="pill"
-					        data-bs-target="#pills-calendar" type="button" role="tab" aria-controls="pills-calendar"
-					        aria-selected="false"><i class="bi bi-calendar3"></i></button>
+					<button class="nav-link active" id="tabs-calendar-tab" data-bs-toggle="tab"
+					        data-bs-target="#tabs-calendar" type="button" role="tab" aria-controls="tabs-calendar"
+					        aria-selected="false">Kalender
+					</button>
 				</li>
 			</ul>
 
@@ -22,8 +23,8 @@
 		</div>
 	</div>
 
-	<div class="tab-content" id="pills-tabContent">
-		<div class="tab-pane fade show active" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab" tabindex="0">
+	<div class="tab-content" id="tabs-tabContent">
+		<div class="tab-pane fade" id="tabs-table" role="tabpanel" aria-labelledby="tabs-table-tab" tabindex="0">
 			<table id="data-table" class="table table-striped table-hover">
 				<thead>
 					<tr>
@@ -54,7 +55,7 @@
 			</table>
 		</div>
 
-		<div class="tab-pane fade" id="pills-calendar" role="tabpanel" aria-labelledby="pills-calendar-tab"
+		<div class="tab-pane fade show active" id="tabs-calendar" role="tabpanel" aria-labelledby="tabs-calendar-tab"
 		     tabindex="0">
 			<div id="calendar">
 

@@ -83,11 +83,10 @@
 			} );
 			calendar.render();
 
-			$('#pills-calendar-tab').click(() => {
+			$( '#pills-calendar-tab' ).click( () => {
 				calendar.render();
-			});
+			} );
 		} );
-		
 
 
 		$( function () {

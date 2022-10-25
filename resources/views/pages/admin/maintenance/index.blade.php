@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-	<div class="pt-5 d-flex justify-content-between align-items-center">
+	<div class="pt-3 d-flex justify-content-between align-items-center">
 		<h1>Storingsaanvragen</h1>
 
 		<div class="w-50 d-flex justify-content-end align-items-center">
@@ -23,7 +23,7 @@
 		</div>
 	</div>
 
-	<div class="tab-content" id="tabs-tabContent">
+	<div class="pt-3 tab-content" id="tabs-tabContent">
 		<div class="tab-pane fade" id="tabs-table" role="tabpanel" aria-labelledby="tabs-table-tab" tabindex="0">
 			<table id="data-table" class="table table-striped table-hover">
 				<thead>

@@ -71,10 +71,15 @@
 				initialView: 'dayGridMonth',
 				themeSystem: 'bootstrap5',
 				locale: 'nl',
+				aspectRatio: 1.8,
 				eventTimeFormat: {
 					hour: '2-digit',
 					hour12: false,
 					minute: '2-digit',
+				},
+				headerToolbar: {
+					start: 'title',
+					end: 'timeGridDay timeGridWeek dayGridMonth today prev next'
 				},
 				eventClick: ( info ) => {
 					window.open( '{{url('admin/maintenance')}}' + `/${ info.event.id }` );

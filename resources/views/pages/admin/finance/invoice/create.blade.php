@@ -5,7 +5,7 @@
     <h2>Voeg een factuur toe</h2>
 
     <form action=""></form>
-    <form method="post" action="{{route('invoices.store')}}">
+    <form method="post" action="{{route('invoices.store')}}" class="w-75 mx-auto">
         @csrf
 
         <div class="form-group mb-3">

@@ -10,4 +10,9 @@ class CustomInvoice extends Model
     use HasFactory;
 
     protected $table = 'custom_invoices';
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id');
+    }
 }

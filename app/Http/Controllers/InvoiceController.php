@@ -50,10 +50,24 @@ class InvoiceController extends Controller
     {
         $custom_invoice = new CustomInvoice();
         $custom_invoice->date = $request->date;
-        $custom_invoice->company_id = Auth::user()->company->id;
+        $custom_invoice->company_id = $request->company_id;
         $custom_invoice->save();
+        
+        if ($request->filled('products')) {
+            foreach ($request->products as $currProduct) {
+                $product = Product::find($currProduct['product_id']);
+                
+                $invoiceProduct = new CustomInvoiceProduct();
+                $invoiceProduct->custom_invoice_id = $custom_invoice->id;
+                $invoiceProduct->product_id = $currProduct['product_id'];
+                $invoiceProduct->amount = $currProduct['product_id'];
+                $invoiceProduct->price_per_product = $product->price;
+                $invoiceProduct->save();
+            }
+        }
 
-        return view('pages.admin.finance.invoice.index');
+        return redirect()
+            ->route('invoices.index');
     }
 
     /**

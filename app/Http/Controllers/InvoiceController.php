@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CustomInvoiceProduct;
 use Illuminate\Http\Request;
 use App\Models\CustomInvoice;
 use App\Models\Product;
@@ -17,7 +18,10 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.finance.invoice.index');
+        $invoices = CustomInvoice::all();
+        return view('pages.admin.invoices.index', [
+            'invoices' => $invoices
+        ]);
     }
 
     /**

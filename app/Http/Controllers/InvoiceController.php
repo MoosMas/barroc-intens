@@ -78,7 +78,11 @@ class InvoiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $invoice = CustomInvoice::find($id);
+        
+        return view('pages.admin.invoices.show', [
+            'invoices' => $invoice
+        ]);
     }
 
     /**

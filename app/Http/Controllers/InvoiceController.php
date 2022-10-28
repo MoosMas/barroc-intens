@@ -30,7 +30,7 @@ class InvoiceController extends Controller
         $products = Product::all();
         $companies = Company::all();
 
-        return view('pages.admin.finance.invoice.create', [
+        return view('pages.admin.invoices.create', [
             'products' => $products,
             'companies' => $companies
         ]);

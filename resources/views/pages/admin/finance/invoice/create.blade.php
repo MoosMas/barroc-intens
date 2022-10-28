@@ -27,7 +27,7 @@
 
                         <tr>
                             <td class="products-fields-container col-8" :id="'products-fields-template-'+count">
-                                <select class="form-select select-product" :name="'products['+ count +']'">
+                                <select class="form-select select-product" :name="'products['+ count +'][product_id]'">
                                     <option selected disabled>Selecteer een product</option>
 
                                     @foreach($products as $product)

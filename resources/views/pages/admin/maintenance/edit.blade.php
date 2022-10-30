@@ -28,9 +28,12 @@
 					<input type="time" name="start_time" class="form-control" id="start_time"
 					       value="{{$maintenance->start ? $maintenance->start->toTimeString() : ''}}">
 				</div>
-					<label for="duration" class="form-label">Duur (minuten)</label>
-					<input type="number" name="duration_minutes" id="duration" class="form-control" step="5" value="{{$maintenance->duration_minutes}}">
 				<div class="col-3">
+					<label for="duration" class="form-label">Duur</label>
+					<div class="input-group mb-3">
+						<input type="number" name="duration_minutes" id="duration" class="form-control" step="5" min="0" value="{{$maintenance->duration_minutes}}">
+						<span class="input-group-text">minuten</span>
+					</div>
 				</div>
 			</div>
 

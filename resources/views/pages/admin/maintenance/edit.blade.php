@@ -4,7 +4,7 @@
 	<div class="pt-5">
 		<h1>Storingsaanvraag</h1>
 		
-		<form action="{{route('maintenance.update', $maintenance)}}" method="POST">
+		<form action="{{route('maintenance.update', $maintenance)}}" method="POST" class="w-75 mx-auto">
 			@csrf
 			@method('PUT')
 			<div class="form-group mb-3">
@@ -18,19 +18,19 @@
 			</div>
 
 			<div class="form-group row mb-3">
-				<div class="col">
+				<div class="col-4">
 					<label for="start_date" class="form-label">Datum</label>
 					<input type="date" name="start_date" class="form-control" id="start_date"
 					       value="{{$maintenance->start ? $maintenance->start->toDateString() : ''}}">
 				</div>
-				<div class="col">
+				<div class="col-4">
 					<label for="start_time" class="form-label">Tijd</label>
 					<input type="time" name="start_time" class="form-control" id="start_time"
 					       value="{{$maintenance->start ? $maintenance->start->toTimeString() : ''}}">
 				</div>
-				<div class="col">
 					<label for="duration" class="form-label">Duur (minuten)</label>
 					<input type="number" name="duration_minutes" id="duration" class="form-control" step="5" value="{{$maintenance->duration_minutes}}">
+				<div class="col-3">
 				</div>
 			</div>
 

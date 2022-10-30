@@ -20,6 +20,7 @@
                     <tr>
                         <td class="form-label ps-0">Producten</td>
                         <th class="text-center">Aantal</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,6 +48,12 @@
                                     <button class="btn btn-outline-secondary" type="button" @click="amount++">+
                                     </button>
                                 </div>
+                            </td>
+                            
+                            <td>
+                                <button class="btn btn-outline-danger" type="button" @click="removeProduct($event)">
+                                    <i class="bi bi-trash"></i>
+                                </button>
                             </td>
                         </tr>
                     </template>
@@ -82,6 +89,10 @@
             let clone = template.content.cloneNode(true)
             container.appendChild(clone);
             count++;
+        }
+        
+        function removeProduct(e){
+            $(e.currentTarget).parents('tr').remove();
         }
 
 		$( document ).ready(() => {

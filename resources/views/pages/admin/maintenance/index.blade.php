@@ -67,11 +67,16 @@
 		document.addEventListener( 'DOMContentLoaded', function () {
 			let events = {!! json_encode($requests) ?? [] !!};
 			let calendarEl = document.getElementById( 'calendar' );
+			let initialView = localStorage.getItem('fullcalendar-initialview') || 'dayGridMonth';
+			
 			let calendar = new FullCalendar.Calendar( calendarEl, {
-				initialView: 'dayGridMonth',
+				initialView: initialView,
 				themeSystem: 'bootstrap5',
 				locale: 'nl',
 				aspectRatio: 1.8,
+				datesSet: () => {
+					localStorage.setItem('fullcalendar-initialview', calendar.view.type);
+				},
 				eventTimeFormat: {
 					hour: '2-digit',
 					hour12: false,

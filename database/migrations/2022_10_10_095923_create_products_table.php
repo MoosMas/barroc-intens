@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('image_path');
             $table->decimal('price');
             $table->foreignId('product_category_id')
                 ->references('id')

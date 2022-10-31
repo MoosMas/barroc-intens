@@ -52,11 +52,11 @@ class InvoiceController extends Controller
         $custom_invoice->date = $request->date;
         $custom_invoice->company_id = $request->company_id;
         $custom_invoice->save();
-        
+
         if ($request->filled('products')) {
             foreach ($request->products as $currProduct) {
                 $product = Product::find($currProduct['product_id']);
-                
+
                 $invoiceProduct = new CustomInvoiceProduct();
                 $invoiceProduct->custom_invoice_id = $custom_invoice->id;
                 $invoiceProduct->product_id = $currProduct['product_id'];
@@ -79,7 +79,7 @@ class InvoiceController extends Controller
     public function show($id)
     {
         $invoice = CustomInvoice::find($id);
-        
+
         return view('pages.admin.invoices.show', [
             'invoices' => $invoice
         ]);
@@ -93,7 +93,11 @@ class InvoiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $invoice = CustomInvoice::findOrFail($id);
+
+        return view('pages/admin/invoices/edit',[
+            'invoice' => $invoice
+        ]);
     }
 
     /**

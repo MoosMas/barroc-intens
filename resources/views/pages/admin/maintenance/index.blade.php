@@ -8,7 +8,8 @@
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 				<li class="nav-item" role="presentation">
 					<button class="nav-link" id="tabs-table-tab" data-bs-toggle="tab" data-bs-target="#tabs-table"
-					        type="button" role="tab" aria-controls="tabs-table" aria-selected="true">Nog in te plannen
+					        type="button" role="tab" aria-controls="tabs-table" aria-selected="true">
+						Nog in te plannen <span class="badge rounded-pill text-bg-danger">{{$requests->where('start', '')->count()}}</span>
 					</button>
 				</li>
 				<li class="nav-item" role="presentation">

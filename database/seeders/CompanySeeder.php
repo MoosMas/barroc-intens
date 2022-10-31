@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use Faker\Factory as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Company;
@@ -15,45 +17,20 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        $company = new Company();
-        $company->name = 'Toon';
-        $company->phone = '82749436';
-        $company->street = 'Achterdijk';
-        $company->house_number = '16';
-        $company->city = 'Zevenbergen';
-        $company->country_code = '316';
-        $company->contact_id = '1';
-        $company->save();
+        $faker = Faker::create();
 
-        $company = new Company();
-        $company->name = 'Sam';
-        $company->phone = '82743386';
-        $company->street = 'Koekjesstraat';
-        $company->house_number = '21';
-        $company->city = 'Breda';
-        $company->country_code = '316';
-        $company->contact_id = '1';
-        $company->save();
-
-        $company = new Company();
-        $company->name = 'Joey';
-        $company->phone = '82939436';
-        $company->street = 'zeestraat';
-        $company->house_number = '11';
-        $company->city = 'Breda';
-        $company->country_code = '316';
-        $company->contact_id = '1';
-        $company->save();
-
-        $company = new Company();
-        $company->name = 'Jennifer';
-        $company->phone = '82729847';
-        $company->street = 'De meeren';
-        $company->house_number = '19';
-        $company->city = 'Stockholm';
-        $company->country_code = '316';
-        $company->contact_id = '1';
-        $company->save();
+        foreach (range(1, 10) as $index) {
+            $company = new Company();
+            $company->name = $faker->company;
+            $company->phone = $faker->phoneNumber;
+            $company->street = $faker->streetName;
+            $company->house_number = $faker->buildingNumber;
+            $company->city = $faker->city;
+            $company->country_code = $faker->countryCode;
+            $company->bkr_checked_at = null;
+            $company->contact_id = User::all()->where('role_id', 12)->random()->id;
+            $company->save();
+        }
 
     }
 }

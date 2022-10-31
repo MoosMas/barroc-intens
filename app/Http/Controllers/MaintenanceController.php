@@ -18,6 +18,11 @@ class MaintenanceController extends Controller
     {
         $requests = Maintenance::all();
         
+        $requests = $requests->map(function ($request) {
+            $request->end = $request->getEnd;
+            return $request;
+        });
+        
         return view('pages.admin.maintenance.index', [
             'requests' => $requests
         ]);

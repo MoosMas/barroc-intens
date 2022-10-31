@@ -38,7 +38,7 @@
 				</thead>
 
 				<tbody class="table-group-divider">
-					@foreach($requests as $request)
+					@foreach($requests->where('start', '') as $request)
 						<tr>
 							<td>{{$request->id}}</td>
 							<td>{{$request->company->name}}</td>

@@ -4,7 +4,7 @@
     <h1>Producten</h1>
     <h2>Product bewerken</h2>
     <form action=""></form>
-    <form method="post" action="{{route('products.update', $product)}}">
+    <div method="post" action="{{route('products.update', $product)}}">
         @csrf
         @method('PUT')
 
@@ -36,8 +36,15 @@
 		    </select>
 	    </div>
 
+        <div class="d-flex p-2 bd-highlight">
+        <form action="POST" action=""{{route('products.update', $product)}}>
+            @csrf
+            @method('PUT')
+            <input type="submit" value="Save Item" class="btn btn-primary">
+        </form>
+
+        <div class="mx-2">
         <div class="buttons d-flex">
-            <a href="{{ route ('products.edit', $product)}}" class="btn btn-warning">Edit</a>
             <form action=""></form>
             <form method="POST" action="{{route('products.destroy', $product)}}">
                 @csrf
@@ -45,8 +52,9 @@
                 <input class="btn btn-danger" type="submit" value="Delete">
             </form>
         </div>
+        </div>
+    </div>
 
-	    <input type="submit" value="Save Item" class="btn btn-primary">
 
     </form>
 @endsection

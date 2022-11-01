@@ -95,7 +95,20 @@ class MaintenanceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $newDate = Carbon::parse($request->start_date)
+            ->setTimeFromTimeString($request->start_time);
+        
+        $maintenance = Maintenance::find($id);
+        $maintenance->title = $request->title;
+        $maintenance->remark = $request->remark;
+        $maintenance->start = $newDate;
+        $maintenance->duration_minutes = $request->duration_minutes;
+        
+        $maintenance->save();
+        
+        return redirect()
+            ->route('maintenance.index')
+            ->with('success', 'Aanvraag aangepast');
     }
 
     /**

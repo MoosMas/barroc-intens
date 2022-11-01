@@ -40,7 +40,7 @@
     </div>
 
     <div class="form-group mb-3">
-        <label for="bkr">Heeft de klant een bkr registratie?</label><br>
+        <label for="bkr">Heeft de klant een BKR-registratie?</label><br>
         <input type="checkbox" id="bkr" name="bkr_checked_at" @if(isset($company->bkr_checked_at)) checked @endif>
         <label for="bkr"> Ja</label><br>
     </div>

@@ -26,7 +26,7 @@
 				<a class="nav-link" href="{{route('contacts.index')}}">Contactaanvragen</a>
 			</li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('invoices.index')}}">Facturen aansluitkosten</a>
+                <a class="nav-link" href="{{route('invoices.index')}}">Facturen</a>
             </li>
 			<li class="nav-item">
 				<a class="nav-link" href="{{route('maintenance.index')}}">Storingsaanvragen</a>

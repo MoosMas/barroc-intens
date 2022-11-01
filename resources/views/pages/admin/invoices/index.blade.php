@@ -25,10 +25,11 @@
 					<td>{{$invoice->company->name}}</td>
 					<td>{{$invoice->created_at}}</td>
 					<td>{{$invoice->paid_at ?? '-'}}</td>
-					<td class="text-center">
-						<a href="{{route('invoices.show', $invoice)}}" class="btn btn-sm btn-outline-secondary">
+					<td class="text-center d-flex">
+						<a href="{{route('invoices.show', $invoice)}}" class="btn btn-sm btn-outline-secondary me-3">
 							<i class="bi bi-eye"></i>
 						</a>
+                        <a href="{{route('invoices.edit', $invoice)}}" class="btn btn-sm btn-warning">Edit</a>
 					</td>
 				</tr>
 			@endforeach

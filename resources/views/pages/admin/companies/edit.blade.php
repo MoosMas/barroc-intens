@@ -7,44 +7,44 @@
     @csrf
     @method('put')
     <div class="form-group">
-        <label for="">Naam</label>
-        <input value="{{$company->name}}"type="text" name="name" class="form-control" >
+        <label for="name">Naam</label>
+        <input value="{{$company->name}}"type="text" name="name" class="form-control" id="name">
     </div>
 
     <div class="form-group">
-        <label for="">Telefoon nummer</label>
-        <input value="{{$company->phone}}" type="text" name="phone" class="form-control">
+        <label for="phone">Telefoon nummer</label>
+        <input value="{{$company->phone}}" type="text" name="phone" class="form-control" id="phone">
     </div>
 
     <div class="form-group">
-        <label for="">Straat</label>
-        <input value="{{$company->street}}" type="text" name="street" class="form-control">
+        <label for="street">Straat</label>
+        <input value="{{$company->street}}" type="text" name="street" class="form-control" id="street">
     </div>
 
     <div class="form-group">
-        <label for="">Huis nummer</label>
-        <input value="{{$company->house_number}}"type="number" name="house_number" class="form-control">
+        <label for="house_number">Huis nummer</label>
+        <input value="{{$company->house_number}}"type="number" name="house_number" class="form-control" id="house_number">
     </div>
 
     <div class="form-group">
-        <label for="">Stad</label>
-        <input value="{{$company->city}}"type="text" name="city" class="form-control">
+        <label for="city">Stad</label>
+        <input value="{{$company->city}}"type="text" name="city" class="form-control" id="city">
     </div>
 
     <div class="form-group">
-        <label for="">Land code</label>
-        <input value="{{$company->country_code}}" type="number" name="country_code" class="form-control">
+        <label for="country_code">Land code</label>
+        <input value="{{$company->country_code}}" type="number" name="country_code" class="form-control" id="country_code">
     </div>
 
     <div class="form-group">
-        <label for="">Heeft de klant een bkr registratie?</label><br>
-        <input type="checkbox" id="ja" name="bkr_checked_at" @if(isset($company->bkr_checked_at)) checked @endif>
-        <label for="Ja"> Ja</label><br>
+        <label for="bkr">Heeft de klant een bkr registratie?</label><br>
+        <input type="checkbox" id="bkr" name="bkr_checked_at" @if(isset($company->bkr_checked_at)) checked @endif>
+        <label for="bkr"> Ja</label><br>
     </div>
 
     <div class="form-group">
-        <label for="">Contact id</label>
-        <input value="{{$company->contact_id}}"type="number" name="contact_id" class="form-control">
+        <label for="contact_id">Contact id</label>
+        <input value="{{$company->contact_id}}" type="number" name="contact_id" class="form-control" id="contact_id">
     </div>
 
     <div class="buttons d-flex">

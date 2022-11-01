@@ -7,7 +7,7 @@
             @csrf
             <div class="form-group mb-3">
                 <label for="name">Naam</label>
-                <input type="text" name="name" class="form-control" id="name" >
+                <input type="text" name="name" class="form-control" id="name">
             </div>
 
             <div class="form-group mb-3">

@@ -19,7 +19,7 @@ class MaintenanceController extends Controller
         $requests = Maintenance::all();
         
         $requests = $requests->map(function ($request) {
-            $request->end = $request->getEnd;
+            $request->end = $request->getEndTime();
             return $request;
         });
         

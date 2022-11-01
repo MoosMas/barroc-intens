@@ -21,17 +21,9 @@ class Maintenance extends Model
     {
         return $this->belongsTo(Company::class, 'company_id');
     }
-
-    /**
-     * Get the appointment's end date and time.
-     * 
-     * @return Attribute
-     */
-//    TODO: Is dit de juiste manier om dit te doen?
-    protected function getEnd(): Attribute
+    
+    public function getEndTime() 
     {
-        return Attribute::make(
-            get: fn ($value) => Carbon::parse($this->start)->addMinutes($this->duration_minutes)
-        );
+        return Carbon::parse($this->start)->addMinutes($this->duration_minutes);
     }
 }

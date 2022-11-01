@@ -36,6 +36,9 @@
 					<td>{{$company->city}}</td>
 					<td>{{$company->bkr_checked_at}}</td>
 					<td class="text-center">
+						<a href="{{route('companies.show', $company)}}" class="btn btn-sm btn-outline-secondary">
+							<i class="bi bi-eye"></i>
+						</a>
 						<a href="{{route('companies.edit', $company)}}" class="btn btn-sm btn-outline-secondary">
 							<i class="bi bi-pencil-fill"></i>
 						</a>

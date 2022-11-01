@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<h1>Edit zooi</h1>
+<h1>Bedrijf bewerken</h1>
 <form action=""></form>
 <form method="post" action="{{route('companies.update', $company)}}">
     @csrf

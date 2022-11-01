@@ -75,6 +75,10 @@
 				themeSystem: 'bootstrap5',
 				locale: 'nl',
 				aspectRatio: 1.8,
+				slotMinTime: '08:00:00',
+				slotMaxTime: '19:00:00',
+				nowIndicator: true,
+				height: 700,
 				datesSet: () => {
 					localStorage.setItem('fullcalendar-initialview', calendar.view.type);
 				},

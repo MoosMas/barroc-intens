@@ -29,6 +29,7 @@
 {{--                <td>{{$user->function}}</td>--}}
                 <td class="text-center">
                     <a href="{{route('users.edit', $user)}}" class="btn btn-sm btn-outline-secondary">
+
                         <i class="bi bi-pencil-fill"></i>
                     </a>
                 </td>

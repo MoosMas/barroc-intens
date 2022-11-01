@@ -75,9 +75,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::findOrFail($id);
+        $user = User::findOrFail($id);
+        $roles =Role::all();
         return view('pages.admin.users.edit', [
-            'roles' => $role]);
+            'user' => $user,
+            'roles' =>$roles
+        ]);
     }
 
     /**
@@ -89,8 +92,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $role = Role::findOrFail($id);
-        $role->update($request->except(['_token', '_method']));
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role_id = $request->role_id;
+        $user->save();
         return redirect()
             ->route('users.index');
     }
@@ -103,7 +109,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        Role::destroy($id);
+        User::destroy($id);
         return redirect()
             ->route('users.index');
     }

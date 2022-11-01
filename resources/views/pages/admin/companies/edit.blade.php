@@ -37,11 +37,25 @@
     </div>
 
     <div class="form-group">
+        <label for="">Heeft de klant een bkr registratie?</label><br>
+        <input type="checkbox" id="ja" name="bkr_checked_at" @if(isset($company->bkr_checked_at)) checked @endif>
+        <label for="Ja"> Ja</label><br>
+    </div>
+
+    <div class="form-group">
         <label for="">Contact id</label>
         <input value="{{$company->contact_id}}"type="number" name="contact_id" class="form-control">
     </div>
 
-    <input type="submit" value="Opslaan" class="btn btn-primary">
+    <div class="buttons d-flex">
+        <input type="submit" value="Opslaan" class="btn btn-primary mt-5">
+        <form action=""></form>
+        <form method="POST" action="{{route('companies.destroy', $company)}}">
+            @csrf
+            @method('delete')
+            <input class="btn btn-danger ms-5 mt-5" type="submit" value="Delete">
+        </form>
+    </div>    
 
 </form>
 @endsection

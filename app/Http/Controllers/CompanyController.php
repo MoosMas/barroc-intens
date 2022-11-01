@@ -38,10 +38,27 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $companies = Company::create( $request->except('_token') );
+        //dd(now());
+        $company = new Company();
+        $company->name = $request->name;
+        $company->phone = $request->phone;
+        $company->street = $request->street;
+        $company->house_number = $request->house_number;
+        $company->city = $request->city;
+        $company->country_code = $request->country_code;
+        if($request->has('bkr_checked_at')){
+                $company->bkr_checked_at = now()->toDateTimeString();
+            }else{
+                //Checkbox not checked
+            }
+        $company->contact_id = $request->contact_id;
+        $company->save();
+        
         return redirect()
             ->route('companies.index')
-            ->with('message', " $companies->name is succesvol toegevoegd!");
+            ->with('message', " $company->name is succesvol toegevoegd!");
+                
+
     }
 
     /**
@@ -52,7 +69,10 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        //
+        $company = Company::findOrFail($id);
+        return view('pages.admin.companies.show', [
+            'company' => $company
+        ]);
     }
 
     /**
@@ -64,8 +84,10 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $company = Company::findOrFail($id);
+       //dd(now());
         return view('pages.admin.companies.edit', [
             'company' => $company]);
+        
     }
 
     /**
@@ -78,7 +100,20 @@ class CompanyController extends Controller
     public function update(Request $request, $id)
     {
         $company = Company::findOrFail($id);
-        $company->update($request->except(['_token', '_method']));
+        $company->name = $request->name;
+        $company->phone = $request->phone;
+        $company->street = $request->street;
+        $company->house_number = $request->house_number;
+        $company->city = $request->city;
+        $company->country_code = $request->country_code;
+        if($request->has('bkr_checked_at')){
+                $company->bkr_checked_at = now()->toDateTimeString();
+            }else{
+                //Checkbox not checked
+            }
+        $company->contact_id = $request->contact_id;
+        $company->save();
+        
         return redirect()
             ->route('companies.index')
             ->with('message', "Item $company->name is succesvol aangepast!");
@@ -95,6 +130,6 @@ class CompanyController extends Controller
         Company::destroy($id);
         return redirect()
         ->route('companies.index')
-        ->with('message', "bucketlist item succesvol verwijderd!");
+        ->with('message', "item succesvol verwijderd!");
     }
 }

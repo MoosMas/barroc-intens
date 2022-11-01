@@ -1,46 +1,63 @@
 @extends('layouts.base')
 
 @section('content')
-    <h1>test</h1>
     @if( session('message') )
         <p class="alert alert-success">{{ session('message') }}</p>
     @endif
 
-    <ul class="list-group">
-        @foreach( $companies as $company )
-            <li class="list-group-item d-flex justify-content-between">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col">Voornaam</th>
-                        <th scope="col">Telefoon</th>
-                        <th scope="col">Straat</th>
-                        <th scope="col">Huisnummer</th>
-                        <th scope="col">Stad</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><a href="{{route('companies.show', $company)}}">{{ $company->name }}</a></td>
-                        <td>{{$company->country_code}}{{$company->phone}}</td>
-                        <td>{{$company->street}}</td>
-                        <td>{{$company->house_number}}</td>
-                        <td>{{$company->city}}</td>
-                    </tr>
-                    </tbody>
-                </table> 
-                <p><a href="{{route('companies.show', $company)}}">{{ $company->title }}</a></p>
-                <div class="buttons d-flex">
-                    <a href="{{ route ('companies.edit', $company)}}" class="btn btn-warning">Edit</a>
-                    <form action=""></form>
-                    <form method="POST" action="{{route('companies.destroy', $company)}}">
-                        @csrf
-                        @method('delete')
-                        <input class="btn btn-danger" type="submit" value="Delete">
-                    </form>
-                </div>
-            </li>
-        @endforeach
-    </ul>
-    <a href="{{route('companies.create')}}" class="btn btn-primary">Create new Item!</a>
+    <div class="pt-5 d-flex justify-content-between align-items-center">
+		<h1>Companies</h1>
+		<div class="w-50 d-flex justify-content-around">
+			<input class="search form-control w-50" type="search" data-column="all" placeholder="Zoeken...">
+			<a href="{{route('companies.create')}}" class="btn btn-primary">Nieuw company </a>
+		</div>
+	</div>
+
+	<table id="data-table" class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Voornaam</th>
+				<th>Telefoon</th>
+				<th>Straat</th>
+				<th>Huisnummer</th>
+				<th>Stad</th>
+                <th>Bkr check</th>
+				<th class="sorter-false"></th>
+			</tr>
+		</thead>
+
+		<tbody class="table-group-divider">
+			@foreach($companies as $company)
+				<tr>
+					<td><a href="{{route('companies.show', $company)}}">{{$company->name}}</a></td>
+					<td>({{$company->country_code}}){{$company->phone}}</td>
+					<td>{{$company->street}}</td>
+                    <td>{{$company->house_number}}</td>
+					<td>{{$company->city}}</td>
+					<td>{{$company->bkr_checked_at}}</td>
+					<td class="text-center">
+						<a href="{{route('companies.edit', $company)}}" class="btn btn-sm btn-outline-secondary">
+							<i class="bi bi-pencil-fill"></i>
+						</a>
+					</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+
+	<script type="module">
+		$( function () {
+			$( '#data-table' ).tablesorter( {
+				theme: '',
+				widgets: ["filter", "saveSort" ],
+				widgetOptions: {
+					filter_external: '.search',
+					filter_defaultFilter: { 1: '~{query}' },
+					filter_columnFilters: false,
+					filter_saveFilters: true,
+					saveSort: true,
+				}
+			} );
+		});
+	</script>
 @endsection

@@ -27,6 +27,12 @@
             </div>
 
             <div class="form-group">
+                <label for="">Heeft de klant een bkr registratie?</label><br>
+                <input type="checkbox" id="ja" name="bkr_checked_at">
+                <label for="Ja"> Ja</label><br>
+            </div>
+
+            <div class="form-group">
                 <label for="">Stad</label>
                 <input type="text" name="city" class="form-control">
             </div>

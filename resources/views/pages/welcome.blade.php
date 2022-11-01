@@ -35,6 +35,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="https://cookieconsent.popupsmart.com/src/js/popper.js"></script><script> window.start.init({Palette:"palette1",Mode:"banner bottom",Theme:"classic",Location:"https://www.cookiepolicygenerator.com/live.php?token=jj0hNyTdFAk9fqtuhksYDvHahNxO7Lxd",Time:"1",})</script>
     <div class="row">
         @include('includes.footer')
     </div>

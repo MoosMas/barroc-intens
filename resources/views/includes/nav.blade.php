@@ -23,6 +23,9 @@
 				<a class="nav-link" href="">Offertes</a>
 			</li>
 			<li class="nav-item">
+				<a class="nav-link" href="{{route('companies.index')}}">Klanten</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" href="{{route('contacts.index')}}">Contactaanvragen</a>
 			</li>
             <li class="nav-item">

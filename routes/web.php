@@ -7,7 +7,7 @@ use \App\Http\Controllers\InvoiceController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\CompanyController;
 use \App\Http\Controllers\MaintenanceController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('products', ProductController::class);
     Route::resource('companies', CompanyController::class);
     Route::resource('maintenance', MaintenanceController::class);
-    Route::resource('users', RoleController::class);
+    Route::resource('users', UserController::class);
 });
 
 require __DIR__ . '/auth.php';

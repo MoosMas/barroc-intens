@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Role;
 
-class RoleController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,10 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('pages.admin.users.index', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -23,7 +28,10 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::all();
+        return view('pages.admin.users.create', [
+            'roles' => $roles
+        ]);
     }
 
     /**
@@ -34,7 +42,14 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password= $request->password;
+        $user->role_id = $request->role_id;
+        $user->save();
+        return redirect()
+            ->route('users.index');
     }
 
     /**
@@ -45,7 +60,10 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        $roles = Role::findOrFail($id);
+        return view('pages.admin.users',[
+            'roles' => $roles
+        ]);
     }
 
     /**
@@ -56,7 +74,9 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::findOrFail($id);
+        return view('pages.admin.users.edit', [
+            'roles' => $role]);
     }
 
     /**
@@ -68,7 +88,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $role = Role::findOrFail($id);
+        $role->update($request->except(['_token', '_method']));
+        return redirect()
+            ->route('users.index');
     }
 
     /**
@@ -79,6 +102,8 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Role::destroy($id);
+        return redirect()
+            ->route('users.index');
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <ul class="list-group">
+    <ul class="list-group pt-5">
         <li class="list-group-item d-flex justify-content-between align-items-start ">
             <div class="ms-2 me-auto">
                 <div class="fw-bold">Naam</div>
@@ -55,5 +55,5 @@
                 {{$company->updated_at->format('d-m-Y H:i:s')}}
             </div>
         </li>
-    </ul>    
+    </ul>
 @endsection

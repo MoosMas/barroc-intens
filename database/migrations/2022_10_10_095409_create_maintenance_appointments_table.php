@@ -20,6 +20,14 @@ return new class extends Migration
                 ->on('companies');
             $table->string('title');
             $table->longText('remark');
+            $table->dateTime('start')->nullable();
+            $table->integer('duration_minutes')->nullable();
+            $table->foreignId('employee_id')
+                ->nullable()
+                ->constrained('users');
+            $table->foreignId('work_order_id')
+                ->nullable()
+                ->constrained('work_order');
             $table->timestamps();
         });
     }

@@ -104,6 +104,10 @@ class MaintenanceController extends Controller
         $maintenance->start = $newDate;
         $maintenance->duration_minutes = $request->duration_minutes;
         
+        // TODO: Add form fields for these properties
+//        $maintenance->employee_id = $request->employee_id;
+//        $maintenance->work_order_id = $request->work_order_id;
+        
         $maintenance->save();
         
         return redirect()

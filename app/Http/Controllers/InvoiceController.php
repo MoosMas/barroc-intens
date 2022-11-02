@@ -60,7 +60,7 @@ class InvoiceController extends Controller
                 $invoiceProduct = new CustomInvoiceProduct();
                 $invoiceProduct->custom_invoice_id = $custom_invoice->id;
                 $invoiceProduct->product_id = $currProduct['product_id'];
-                $invoiceProduct->amount = $currProduct['product_id'];
+                $invoiceProduct->amount = $currProduct['amount'];
                 $invoiceProduct->price_per_product = $product->price;
                 $invoiceProduct->save();
             }

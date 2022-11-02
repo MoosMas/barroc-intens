@@ -49,15 +49,13 @@
         <label for="contact_id">Contact id</label>
         <input value="{{$company->contact_id}}" type="number" name="contact_id" class="form-control" id="contact_id">
     </div>
-
-    <div class="buttons d-flex">
+    <div class="buttons d-flex">   
         <input type="submit" value="Opslaan" class="btn btn-primary mt-5">
+    </form> 
         <form method="POST" action="{{route('companies.destroy', $company)}}">
             @csrf
             @method('delete')
             <input class="btn btn-danger ms-5 mt-5" type="submit" value="Delete">
         </form>
-    </div>    
-
-</form>
+    </div>
 @endsection

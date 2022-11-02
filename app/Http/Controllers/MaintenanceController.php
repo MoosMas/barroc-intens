@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Maintenance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class MaintenanceController extends Controller
 {
@@ -16,6 +17,11 @@ class MaintenanceController extends Controller
     public function index()
     {
         $requests = Maintenance::all();
+        
+        $requests = $requests->map(function ($request) {
+            $request->end = $request->getEndTime();
+            return $request;
+        });
         
         return view('pages.admin.maintenance.index', [
             'requests' => $requests
@@ -58,7 +64,11 @@ class MaintenanceController extends Controller
      */
     public function show($id)
     {
-        //
+        $maintenance = Maintenance::find($id);
+        
+        return view('pages.admin.maintenance.show', [
+            'maintenance' => $maintenance
+        ]);
     }
 
     /**
@@ -69,7 +79,11 @@ class MaintenanceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $maintenance = Maintenance::find($id);
+        
+        return view('pages.admin.maintenance.edit', [
+            'maintenance' => $maintenance
+        ]);
     }
 
     /**
@@ -81,7 +95,24 @@ class MaintenanceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $newDate = Carbon::parse($request->start_date)
+            ->setTimeFromTimeString($request->start_time);
+        
+        $maintenance = Maintenance::find($id);
+        $maintenance->title = $request->title;
+        $maintenance->remark = $request->remark;
+        $maintenance->start = $newDate;
+        $maintenance->duration_minutes = $request->duration_minutes;
+        
+        // TODO: Add form fields for these properties
+//        $maintenance->employee_id = $request->employee_id;
+//        $maintenance->work_order_id = $request->work_order_id;
+        
+        $maintenance->save();
+        
+        return redirect()
+            ->route('maintenance.index')
+            ->with('success', 'Aanvraag aangepast');
     }
 
     /**

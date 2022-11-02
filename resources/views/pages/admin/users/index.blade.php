@@ -25,8 +25,8 @@
             <tr>
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
-{{--                <td>{{$user->department}}</td>--}}
-{{--                <td>{{$user->function}}</td>--}}
+                <td>{{$user->role->department}}</td>
+                <td>{{$user->role->function}}</td>
                 <td class="text-center">
                     <a href="{{route('users.edit', $user)}}" class="btn btn-sm btn-outline-secondary">
 

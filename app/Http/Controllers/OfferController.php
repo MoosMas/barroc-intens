@@ -17,7 +17,11 @@ class OfferController extends Controller
      */
     public function index()
     {
-        //
+        $offers = Offer::all();
+        
+        return view('pages.admin.offers.index', [
+            'offers' => $offers
+        ]);
     }
 
     /**

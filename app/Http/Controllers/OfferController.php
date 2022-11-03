@@ -45,7 +45,26 @@ class OfferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $offer = new Offer();
+        $offer->contact_id = $request->contact_id;
+        $offer->save();
+
+        if ($request->filled('products')) {
+            foreach ($request->products as $currProduct) {
+                $product = Product::find($currProduct['product_id']);
+
+                $offerProduct = new OfferProduct();
+                $offerProduct->offer_id = $offer->id;
+                $offerProduct->product_id = $currProduct['product_id'];
+                $offerProduct->amount = $currProduct['amount'];
+                $offerProduct->price_per_product = $product->price;
+                $offerProduct->save();
+            }
+        }
+        
+        return redirect()
+            ->route('offers.index');
+        
     }
 
     /**

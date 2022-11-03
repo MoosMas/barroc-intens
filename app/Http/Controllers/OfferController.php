@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Offer;
+use App\Models\OfferProduct;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OfferController extends Controller
@@ -25,9 +28,12 @@ class OfferController extends Controller
     public function create()
     {
         $contacts = Contact::all();
+        $products = Product::all();
         
         return view('pages.admin.offers.create', [
             'contacts' => $contacts
+            'contacts' => $contacts,
+            'products' => $products
         ]);
     }
 

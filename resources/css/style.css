@@ -1,0 +1,28 @@
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #ffd700 !important;
+    border-color:#ffd700 !important;
+    color: #212121;
+}
+
+.btn-primary:hover{
+    background-color:#212121 !important;
+    border-color: #212121 !important;
+}
+
+h1, h2, h3{
+    font-family: 'Big Shoulders Display';font-size: 4rem !important;
+}
+
+body{
+    font-family: 'Roboto';font-size: 16px;
+}
+
+.navbar, a{
+    color:#212121 !important;
+    font-weight: bold;
+}
+
+.navbar, a:hover{
+    color: #ffd700 !important;
+    
+}

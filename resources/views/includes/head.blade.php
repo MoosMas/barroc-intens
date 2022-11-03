@@ -30,4 +30,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/nl.js"></script>
 
-@vite(['resources/css/tablesorter.css', 'resources/js/app.js'])
+{{-- Font family --}}
+<link href='https://fonts.googleapis.com/css?family=Big Shoulders Display' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+@vite(['resources/css/tablesorter.css', 'resources/js/app.js', 'resources/css/style.css'])

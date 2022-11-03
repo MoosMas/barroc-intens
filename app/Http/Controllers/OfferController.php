@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Offer;
+use App\Models\OfferProduct;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OfferController extends Controller
@@ -25,9 +28,12 @@ class OfferController extends Controller
     public function create()
     {
         $contacts = Contact::all();
+        $products = Product::all();
         
         return view('pages.admin.offers.create', [
             'contacts' => $contacts
+            'contacts' => $contacts,
+            'products' => $products
         ]);
     }
 
@@ -39,7 +45,26 @@ class OfferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $offer = new Offer();
+        $offer->contact_id = $request->contact_id;
+        $offer->save();
+
+        if ($request->filled('products')) {
+            foreach ($request->products as $currProduct) {
+                $product = Product::find($currProduct['product_id']);
+
+                $offerProduct = new OfferProduct();
+                $offerProduct->offer_id = $offer->id;
+                $offerProduct->product_id = $currProduct['product_id'];
+                $offerProduct->amount = $currProduct['amount'];
+                $offerProduct->price_per_product = $product->price;
+                $offerProduct->save();
+            }
+        }
+        
+        return redirect()
+            ->route('offers.index');
+        
     }
 
     /**

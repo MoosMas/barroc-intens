@@ -13,4 +13,9 @@ class Offer extends Model
     {
         return $this->belongsTo(Contact::class, 'contact_id');
     }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class)->withPivot('amount', 'price_per_product');
+    }
 }

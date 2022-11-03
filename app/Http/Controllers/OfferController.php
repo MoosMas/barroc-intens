@@ -31,7 +31,6 @@ class OfferController extends Controller
         $products = Product::all();
         
         return view('pages.admin.offers.create', [
-            'contacts' => $contacts
             'contacts' => $contacts,
             'products' => $products
         ]);

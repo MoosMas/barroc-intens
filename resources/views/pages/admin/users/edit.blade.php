@@ -10,12 +10,12 @@
 
         <div class="form-group mb-3">
             <label for="name" class="form-label">Naam</label>
-            <input type="text" name="name" class="form-control" id="name">
+            <input type="text" name="name" class="form-control" id="name" value="{{$user->name}}">
         </div>
 
         <div class="form-group mb-3">
             <label for="email" class="form-label">email</label>
-            <input type="email" name="email" class="form-control" id="email">
+            <input type="email" name="email" class="form-control" id="email" value="{{$user->email}}">
         </div>
 
         <div class="form-group mb-3">

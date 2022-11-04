@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Maintenance;
@@ -15,28 +16,18 @@ class MaintenanceSeeder extends Seeder
      */
     public function run()
     {
-        $maintenance = new Maintenance();
-        $maintenance->company_id = '1';
-        $maintenance->title = 'Kapotte machine';
-        $maintenance->remark = 'Er komt cola uit ipv koffie';
-        $maintenance->save();
+        $faker = Faker::create();
 
-        $maintenance = new Maintenance();
-        $maintenance->company_id = '2';
-        $maintenance->title = 'Te weinig bonen';
-        $maintenance->remark = 'We krijgen te weinig bonen';
-        $maintenance->save();
-
-        $maintenance = new Maintenance();
-        $maintenance->company_id = '3';
-        $maintenance->title = 'lekkende machine';
-        $maintenance->remark = 'Er lekt water uit de machine';
-        $maintenance->save();
-
-        $maintenance = new Maintenance();
-        $maintenance->company_id = '4';
-        $maintenance->title = 'Machine vloog in de fik';
-        $maintenance->remark = 'ons bedrijf is helemaal afgebrand';
-        $maintenance->save();
+        foreach (range(1, 10) as $index) {
+            $maintenance_request = new Maintenance();
+            $maintenance_request->id = $faker->id;
+            $maintenance_request->company_id = $faker->company_id;
+            $maintenance_request->title = $faker->title;
+            $maintenance_request->remark = $faker->remark;
+            $maintenance_request->start = $faker->start;
+            $maintenance_request->duration_minutes = $faker->duration_minutes;
+            $maintenance_request->employee_id = $faker->employee_id;
+            $maintenance_request->save();
+        }
     }
 }

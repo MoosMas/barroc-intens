@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('content')   
+@section('content')
 
 <div class="text-center container py-5">
     <h4 class="mt-4 mb-5"><strong>Producten</strong></h4>
@@ -26,6 +26,10 @@
               <h5 class="card-title mb-3">{{ $product->name }}</h5>
               <p class="table-longtext-column">{{Str::limit($product->description, 80)}}</p>
               <a class='btn btn-primary' href="{{route('product', $product)}}">Meer info!</a>
+              <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                  <i class="bi-cart-fill me-1"></i>
+                  <a class="text-decoration-none text-color-black" href="{{route('contact')}}"> Vraag offerte aan! </a>
+              </button>
           </div>
         </div>
       </div>
@@ -33,4 +37,4 @@
     </div>
   </div>
 @endsection
-    
+

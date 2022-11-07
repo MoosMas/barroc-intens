@@ -6,7 +6,7 @@
 			<input class="search form-control w-75" type="search" data-column="all" placeholder="Zoeken...">
 		</div>
 	</div>
-	
+
 	<table id="data-table" class="table table-striped table-hover">
 		<thead>
 			<tr>
@@ -30,9 +30,7 @@
 					<td>{{$contact->phone}}</td>
 					<td>{{$contact->message}}</td>
 					<td class="text-center">
-						<a href="{{route('contacts.edit', $contact)}}" class="btn btn-sm btn-outline-secondary">
-							<i class="bi bi-pencil-fill"></i>
-						</a>
+						
 					</td>
 				</tr>
 			@endforeach

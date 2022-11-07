@@ -12,8 +12,8 @@
     <div class="bg-dark text-white pt-5">
         <div class="mx-auto pt-2 pb-2" style="width: 600px;">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eos facilis fugiat iusto minima nisi nobis officia perferendis quam sunt! Cumque dolores ea eos fugit quis. Est nisi rerum temporibus.</p>
-            <a href="#" class="btn btn-warning">Koffiemachines</a>
-            <a href="#" class="btn btn-warning">Koffiebonen</a>
+            <a href="guest/products" class="btn btn-warning">Koffiemachines</a>
+            <a href="guest/products" class="btn btn-warning">Koffiebonen</a>
         </div>
     </div>
 

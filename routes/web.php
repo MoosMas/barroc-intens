@@ -27,12 +27,16 @@ Route::get('/', function () {
     return view('pages/welcome');
 });
 
+Route::get('/guest/dashboard', function () {
+    return view('pages/guest/dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/guest/products', function(){
     $products = Product::all();
         return view('pages/guest/products/index' ,[
             'products' => $products
         ]);
-});
+})->name('products');
 
 Route::get('/guest/products/{id}', function($id){
     $product = Product::findOrFail($id);

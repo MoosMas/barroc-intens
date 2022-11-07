@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Contact;
@@ -15,37 +16,20 @@ class ContactSeeder extends Seeder
      */
     public function run()
     {
-        $contact = new Contact();
-        $contact->name = 'Toon';
-        $contact->company_name = 'Socialtoon';
-        $contact->email = 'info@socialtoon.nl';
-        $contact->phone = '0682749436';
-        $contact->message = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a accumsan neque.';
-        $contact->save();
+        $faker = Faker::create();
 
-        $contact = new Contact();
-        $contact->name = 'Sam';
-        $contact->company_name = 'Socialsam';
-        $contact->email = 'info@socialsam.nl';
-        $contact->phone = '0682742938';
-        $contact->message = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a accumsan neque.';
-        $contact->save();
+        foreach (range(1, 10) as $index) {
+            $contact = new Contact();
+            $contact->id = $faker->id;
+            $contact->name = $faker->name;
+            $contact->company_name = $faker->company_name;
+            $contact->email = $faker->email;
+            $contact->phone = $faker->phone;
+            $contact->message = $faker->message;
+            $contact->handled_at = $faker->handled_at;
+            $contact->notes = $faker->notes;
+            $contact->save();
+        }
 
-        $contact = new Contact();
-        $contact->name = 'Joey';
-        $contact->company_name = 'Socialjoey';
-        $contact->email = 'info@socialjoey.nl';
-        $contact->phone = '0682739482';
-        $contact->message = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a accumsan neque.';
-        $contact->save();
-
-        $contact = new Contact();
-        $contact->name = 'Jennifer';
-        $contact->company_name = 'Socialjennifer';
-        $contact->email = 'info@socialjennifer.nl';
-        $contact->phone = '0682749282';
-        $contact->message = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a accumsan neque.';
-        $contact->save();
-        
     }
 }

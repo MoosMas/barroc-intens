@@ -15,7 +15,7 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = Contact::all();
-        
+
         return view('pages.admin.contacts.index', [
             'contacts' => $contacts
         ]);
@@ -28,8 +28,9 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.contacts.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -39,7 +40,18 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contacts = new Contact();
+        $contacts->id = Auth::user()->company->id;
+        $contacts->name = $request->name;
+        $contacts->company_name = $request->company_name;
+        $contacts->email = $request->email;
+        $contacts->phone = $request->phone;
+        $contacts->message = $request->message;
+        $contacts->handled_at = $request->handled_at;
+        $contacts->save();
+
+        return redirect()
+            ->route('contacts.index');
     }
 
     /**
@@ -50,7 +62,11 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        //
+        $contacts = Contact::find($id);
+
+        return view('pages.admin.contacts.show', [
+            'contacts' => $contacts
+        ]);
     }
 
     /**
@@ -61,7 +77,11 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+
+        return view('pages/admin/contacts/edit',[
+            'contact' => $contact
+        ]);
     }
 
     /**
@@ -73,7 +93,17 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contacts = new Contact();
+        $contacts->name = $request->name;
+        $contacts->company_name = $request->company_name;
+        $contacts->email = $request->email;
+        $contacts->phone = $request->phone;
+        $contacts->message = $request->message;
+        $contacts->handled_at = $request->handled_at;
+        $contacts->save();
+
+        return redirect()
+            ->route('contacts.index');
     }
 
     /**

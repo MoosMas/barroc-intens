@@ -4,7 +4,7 @@
 		<h1>Contactaanvragen</h1>
 		<div class="w-25 d-flex justify-content-end">
 			<input class="search form-control w-75" type="search" data-column="all" placeholder="Zoeken...">
-		</div>
+            </div>
 	</div>
 
 	<table id="data-table" class="table table-striped table-hover">
@@ -16,6 +16,7 @@
 				<th>Email</th>
 				<th>Telefoonnummer</th>
 				<th>Bericht</th>
+                <th>Afgehandeld</th>
 				<th class="sorter-false"></th>
 			</tr>
 		</thead>
@@ -29,8 +30,17 @@
 					<td>{{$contact->email}}</td>
 					<td>{{$contact->phone}}</td>
 					<td>{{$contact->message}}</td>
+                    <td>{{$contact->handled_at}}</td>
+                    <td class="text-center">
+                        <a href="{{route('contacts.show', $contact)}}" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-eye"></i>
+                        </a>
+                        <a href="{{route('contacts.edit', $contact)}}" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                    </td>
 					<td class="text-center">
-						
+
 					</td>
 				</tr>
 			@endforeach

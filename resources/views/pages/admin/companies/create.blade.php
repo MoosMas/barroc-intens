@@ -1,8 +1,9 @@
 @extends('layouts.base')
 
 @section("content")
+    <div class="pt-5">
         <h1>Bedrijf aanmaken</h1>
-        
+
         <form method="post" action="{{route('companies.store')}}">
             @csrf
             <div class="form-group mb-3">
@@ -26,7 +27,7 @@
                     <input type="number" name="house_number" class="form-control" id="house_number">
                 </div>
             </div>
-            
+
             <div class="form-group mb-3">
                 <label for="city">Stad</label>
                 <input type="text" name="city" class="form-control" id="city">
@@ -51,4 +52,6 @@
             <input type="submit" value="Opslaan" class="btn btn-primary">
 
         </form>
-@endsection        
+    </div>
+
+@endsection

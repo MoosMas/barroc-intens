@@ -1,29 +1,30 @@
 @extends('layouts.base')
 
 @section("content")
-    <h1>Facturen</h1>
-    <h2>Voeg een factuur toe</h2>
+    <div class="pt-5">
+        <h1>Facturen</h1>
+        <h2>Voeg een factuur toe</h2>
 
-    <form action=""></form>
-    <form method="post" action="{{route('invoices.store')}}" class="w-75 mx-auto">
-        @csrf
+        <form action=""></form>
+        <form method="post" action="{{route('invoices.store')}}" class="w-75 mx-auto">
+            @csrf
 
-        <div class="form-group mb-3">
-            <label for="date" class="form-label">Datum</label>
-            <input type="date" name="date" class="form-control" id="date">
-        </div>
+            <div class="form-group mb-3">
+                <label for="date" class="form-label">Datum</label>
+                <input type="date" name="date" class="form-control" id="date">
+            </div>
 
-        <div class="form-group mb-3" x-data="{}">
-            
-            <table class="table" id="products-table" >
-                <thead>
+            <div class="form-group mb-3" x-data="{}">
+
+                <table class="table" id="products-table" >
+                    <thead>
                     <tr>
                         <td class="form-label ps-0">Producten</td>
                         <th class="text-center">Aantal</th>
                         <th></th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     <template id="products-template" x-data="{count}">
 
                         <tr>
@@ -37,7 +38,7 @@
 
                                 </select>
                             </td>
-                            
+
                             <td x-data="{amount: 0}">
                                 <div class="input-group w-75 mx-auto">
                                     <button class="btn btn-outline-secondary" type="button"
@@ -49,7 +50,7 @@
                                     </button>
                                 </div>
                             </td>
-                            
+
                             <td>
                                 <button class="btn btn-outline-danger" type="button" @click="removeProduct($event)">
                                     <i class="bi bi-trash"></i>
@@ -57,46 +58,48 @@
                             </td>
                         </tr>
                     </template>
-                </tbody>
-                
-            </table>
+                    </tbody>
 
-            <button @click="addProduct()" type="button" class="btn btn-outline-primary">Product toevoegen</button>
+                </table>
 
-        </div>
+                <button @click="addProduct()" type="button" class="btn btn-outline-primary">Product toevoegen</button>
 
-        <div class="form-group mb-3">
-            <label for="company" class="form-label">Bedrijf</label>
-            <select class="form-select" id="company" name="company_id">
-                <option selected disabled>Selecteer een bedrijf</option>
-                @foreach($companies as $company)
-                    <option value="{{$company->id}}">{{$company->name}}</option>
-                @endforeach
+            </div>
 
-            </select>
-        </div>
+            <div class="form-group mb-3">
+                <label for="company" class="form-label">Bedrijf</label>
+                <select class="form-select" id="company" name="company_id">
+                    <option selected disabled>Selecteer een bedrijf</option>
+                    @foreach($companies as $company)
+                        <option value="{{$company->id}}">{{$company->name}}</option>
+                    @endforeach
 
-        <input type="submit" value="Save Item" class="btn btn-primary">
+                </select>
+            </div>
 
-    </form>
+            <input type="submit" value="Save Item" class="btn btn-primary">
 
-    <script>
-        let container = document.getElementById('products-table');
-        let template = document.getElementById('products-template');
-        let count = -1;
-        
-        function addProduct(){
-            let clone = template.content.cloneNode(true)
-            container.appendChild(clone);
-            count++;
-        }
-        
-        function removeProduct(e){
-            $(e.currentTarget).parents('tr').remove();
-        }
+        </form>
 
-		$( document ).ready(() => {
-			addProduct();
-		});
-    </script>
+        <script>
+            let container = document.getElementById('products-table');
+            let template = document.getElementById('products-template');
+            let count = -1;
+
+            function addProduct(){
+                let clone = template.content.cloneNode(true)
+                container.appendChild(clone);
+                count++;
+            }
+
+            function removeProduct(e){
+                $(e.currentTarget).parents('tr').remove();
+            }
+
+            $( document ).ready(() => {
+                addProduct();
+            });
+        </script>
+    </div>
+
 @endsection

@@ -36,7 +36,7 @@ Route::get('/guest/products', function(){
         return view('pages/guest/products/index' ,[
             'products' => $products
         ]);
-});
+})->name('products');
 
 Route::get('/guest/products/{id}', function($id){
     $product = Product::findOrFail($id);

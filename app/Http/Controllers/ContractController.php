@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contract;
 
 class ContractController extends Controller
 {
@@ -13,7 +14,11 @@ class ContractController extends Controller
      */
     public function index()
     {
-        //
+        $contracts = Contract::all();
+
+        return view('pages.admin.contracts.index', [
+            'contracts' => $contracts
+        ]);
     }
 
     /**

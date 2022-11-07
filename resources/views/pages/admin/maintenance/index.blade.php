@@ -69,7 +69,7 @@
 			let events = {!! json_encode($requests) ?? [] !!};
 			let calendarEl = document.getElementById( 'calendar' );
 			let initialView = localStorage.getItem('fullcalendar-initialview') || 'dayGridMonth';
-			
+
 			let calendar = new FullCalendar.Calendar( calendarEl, {
 				initialView: initialView,
 				themeSystem: 'bootstrap5',

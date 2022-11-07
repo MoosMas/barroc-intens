@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
+use App\Models\ContractProduct;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Contract;
 
@@ -28,7 +31,13 @@ class ContractController extends Controller
      */
     public function create()
     {
-        //
+        $companies = Company::all();
+        $products = Product::all();
+        
+        return view('pages.admin.contracts.create', [
+            'companies' => $companies,
+            'products' => $products
+        ]);
     }
 
     /**
@@ -39,7 +48,22 @@ class ContractController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contract = Contract::create($request->except(['products', '_token']));
+        
+        if ($request->filled('products')) {
+            foreach ($request->products as $product) {
+                $dbProduct = Product::find($product['product_id']);
+                $contractProduct = new ContractProduct();
+                $contractProduct->contract_id = $contract->id;
+                $contractProduct->product_id = $product['product_id'];
+                $contractProduct->amount = $product['amount'];
+                $contractProduct->price_per_product = $dbProduct->price;
+                $contractProduct->save();
+            }
+        }
+        
+        return redirect()
+            ->route('contracts.create');
     }
 
     /**

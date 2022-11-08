@@ -1,10 +1,10 @@
 @extends('layouts.base')
 
 @section('content')
-	<div class="pt-5 d-flex justify-content-between align-items-center">
+	<div class="pt-5 d-flex justify-content-between align-items-center fc-header">
 		<h1>Storingsaanvragen</h1>
 
-		<div class="w-50 d-flex justify-content-end align-items-center">
+		<div class="w-50 d-flex justify-content-end align-items-center fc-header">
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 				<li class="nav-item" role="presentation">
 					<button class="nav-link" id="tabs-table-tab" data-bs-toggle="tab" data-bs-target="#tabs-table"

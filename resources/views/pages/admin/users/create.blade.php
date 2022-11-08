@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="pt-5">
-        <h1>Producten</h1>
-        <h2>Voeg een product toe</h2>
+        <h1>Gebruikers</h1>
+        <h2>Voeg een gebruiker toe</h2>
         <form action=""></form>
         <form method="post" action="{{route('users.store')}}">
 

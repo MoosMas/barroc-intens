@@ -25,7 +25,7 @@ use App\Models\Product;
 
 Route::get('/', function () {
     return view('pages/welcome');
-});
+})->name('home');
 
 Route::get('/guest/dashboard', function () {
     return view('pages/guest/dashboard');

@@ -1,6 +1,7 @@
 @extends('layouts.base')
 
 @section("content")
+<<<<<<< Updated upstream
     <div class="pt-5">
         <h1>Facturen</h1>
         <h2>Voeg een factuur toe</h2>
@@ -18,6 +19,24 @@
 
                 <table class="table" id="products-table" >
                     <thead>
+=======
+    <h1 class="pt-5">Facturen</h1>
+    <h2>Voeg een factuur toe</h2>
+
+    <form action=""></form>
+    <form method="post" action="{{route('invoices.store')}}" class="w-75 mx-auto">
+        @csrf
+
+        <div class="form-group mb-3">
+            <label for="date" class="form-label">Datum</label>
+            <input type="date" name="date" class="form-control" id="date">
+        </div>
+
+        <div class="form-group mb-3" x-data="{}">
+            
+            <table class="table" id="products-table" >
+                <thead>
+>>>>>>> Stashed changes
                     <tr>
                         <td class="form-label ps-0">Producten</td>
                         <th class="text-center">Aantal</th>

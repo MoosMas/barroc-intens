@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="container mt-3 mb-3">
+    <div class="pt-5 container mt-3 mb-3">
         <form class="row g-3 w-50 mx-auto">
             <h2>Neem contact met ons op voor de offerte</h2>
             <div class="col-md-6">

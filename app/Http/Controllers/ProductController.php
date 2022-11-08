@@ -102,6 +102,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        $product = Product::find($id);
+        if ($product->contracts) {
+            return back()->with('error', 'Kan product niet verwijderen omdat er contracten zijn met dit product.');
+        }
+        
         Product::destroy($id);
         return redirect()
             ->route('products.index');

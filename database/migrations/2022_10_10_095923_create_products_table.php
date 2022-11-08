@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('image_path')->nullable();
             $table->decimal('price');
             $table->decimal('installation_costs')->nullable();
+            $table->boolean('amount_in_stock');
+            $table->boolean('ordered')->default(0);
             $table->foreignId('product_category_id')
                 ->references('id')
                 ->on('product_categories');

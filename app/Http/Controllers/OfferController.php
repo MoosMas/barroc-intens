@@ -89,7 +89,15 @@ class OfferController extends Controller
      */
     public function edit($id)
     {
-        //
+        $offer = Offer::with('products')->find($id);
+        $contacts = Contact::all();
+        $products = Product::all();
+        
+        return view('pages.admin.offers.edit', [
+            'offer' => $offer,
+            'contacts' => $contacts,
+            'products' => $products
+        ]);
     }
 
     /**

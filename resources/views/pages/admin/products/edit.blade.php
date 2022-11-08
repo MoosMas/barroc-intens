@@ -4,7 +4,9 @@
     <div class="pt-5">
         <h1>Producten</h1>
         <h2>Product bewerken</h2>
-        <form action=""></form>
+        
+        @include('components.flash-message')
+
         <form method="post" action="{{route('products.update', $product)}}">
             @csrf
             @method('PUT')

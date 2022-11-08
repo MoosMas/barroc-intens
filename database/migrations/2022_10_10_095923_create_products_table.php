@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image_path')->nullable();
             $table->decimal('price');
+            $table->decimal('installation_costs')->nullable();
             $table->foreignId('product_category_id')
                 ->references('id')
                 ->on('product_categories');

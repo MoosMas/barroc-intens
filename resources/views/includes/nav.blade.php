@@ -5,9 +5,8 @@
 		<!-- Left links -->
         <nav class="navbar bg-light fixed-top">
             <div class="container-fluid">
-                    <a class="navbar-brand mt-2 mt-lg-0" href="{{route('dashboard')}}">
-                        <img src="{{ asset('img/logo2.png') }}" width="50px" alt="logo">
-                        Barroc <b>intens</b>
+                    <a class="navbar-brand mt-2 mt-lg-0" href="{{route('home')}}">
+                        <img src="{{ asset('img/barroclogo.png') }}" width="175px" alt="logo">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -71,11 +70,11 @@
                                     <a class="nav-link" href="{{route('users.index')}}">Gebruiker</a>
                                 </li>
                                 @endif
-
+                                @if(Auth::user())
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
                                 </li>
-
+                                @endif
                                 <li class="nav-item">
                                     @guest
                                         <a class="nav-link" href="/login">Login</a>

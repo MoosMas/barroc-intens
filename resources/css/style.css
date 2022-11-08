@@ -24,5 +24,16 @@ body{
 
 .navbar, a:hover{
     color: #ffd700 !important;
-    
+
+}
+
+.fc-header {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199.98px){
+    .fc .fc-toolbar, .fc-header{
+        flex-direction: column;
+    }
 }

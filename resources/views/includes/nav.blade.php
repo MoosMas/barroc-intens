@@ -14,6 +14,9 @@
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('contracts.index')}}">Contracten</a>
+                                </li>
                                 @if(Auth::user() && Auth::user()->role->id == 12)
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('products')}}">Producten</a>
@@ -62,7 +65,7 @@
                                 @endif
                                 @if(Auth::user() && Auth::user()->role->id == 12)
 
-                                @elseif(Auth::user() && Auth::user()->role->id == 13 || Auth::user() && Auth::user()->role->id == 4) 
+                                @elseif(Auth::user() && Auth::user()->role->id == 13 || Auth::user() && Auth::user()->role->id == 4)
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('users.index')}}">Gebruiker</a>
                                 </li>

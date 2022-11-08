@@ -53,6 +53,7 @@ class InvoiceController extends Controller
         $custom_invoice->company_id = $request->company_id;
         $custom_invoice->save();
 
+        // TODO: Zorgen dat deze niet meer nodig is. Producten worden gelinkt aan contracten en niet meer aan facturen.
         if ($request->filled('products')) {
             foreach ($request->products as $currProduct) {
                 $product = Product::find($currProduct['product_id']);

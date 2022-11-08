@@ -2,23 +2,34 @@
 
 @section('content')
 	<div class="pt-5">
-		<h1>Offertes</h1>
-		<h2>Bewerk offerte</h2>
+		<h1>Contracten</h1>
+		<h2>Contract aanmaken</h2>
 
-		<form method="post" action="{{route('offers.update', $offer)}}" class="w-75 mx-auto">
+		<form method="post" action="{{route('contracts.store')}}" class="w-75 mx-auto">
 			@csrf
-			@method('PUT')
+
 			<div class="form-group mb-3">
-				<label for="contact_id" class="form-label">Aanvraag (bedrijf)</label>
-				<select class="form-select" id="contact_id" name="contact_id">
-					<option disabled>Selecteer een aanvraag</option>
-					@foreach($contacts as $contact)
-						<option value="{{$contact->id}}"
-						        @if($offer->contact_id == $contact->id) selected @endif>{{$contact->company_name}}</option>
+				<label for="company_id" class="form-label">Bedrijf</label>
+				<select class="form-select" id="company_id" name="company_id">
+					<option selected disabled>Selecteer een bedrijf</option>
+					@foreach($companies as $company)
+						<option value="{{$company->id}}">{{$company->name}}</option>
 					@endforeach
 
 				</select>
 			</div>
+
+			<div class="form-group row mb-3">
+				<div class="col-6">
+					<label for="start_date" class="form-label">Startdatum</label>
+					<input type="date" name="start_date" class="form-control" id="start_date">
+				</div>
+				<div class="col-6">
+					<label for="end_date" class="form-label">Einddatum</label>
+					<input type="date" name="end_date" class="form-control" id="end_date">
+				</div>
+			</div>
+			
 
 			<div class="form-group mb-3" x-data="{products}">
 
@@ -77,18 +88,18 @@
 			<input type="submit" value="Save Item" class="btn btn-primary">
 		</form>
 	</div>
-	
+
 	<script>
 		let container = document.getElementById( 'products-table' );
 		let template = document.getElementById( 'products-template' );
 		let count = $('#products-table tr').length;
-		let products = {!! json_encode($offer->products) !!};
-		
+		let products = [];
+
 		function getOfferProducts(){
 			// products = ;
 			return products;
 		}
-		
+
 		function addProduct() {
 			let clone = template.content.cloneNode( true )
 			container.appendChild( clone );

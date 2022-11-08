@@ -11,6 +11,7 @@ return new class extends Migration
      *
      * @return void
      */
+    // TODO: Zorgen dat we deze tabel niet meer nodig hebben. Uit controllers en modellen weghalen. Producten worden nu gelinkt aan een contract en niet aan een factuur.
     public function up()
     {
         Schema::create('custom_invoice_product', function (Blueprint $table) {

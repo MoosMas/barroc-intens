@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('offer_products', function (Blueprint $table) {
+        Schema::create('contracts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('offer_id')
+            $table->foreignId('company_id')
                 ->references('id')
-                ->on('offers');
-            $table->foreignId('product_id')
-                ->references('id')
-                ->on('products');
-            $table->integer('amount');
-            $table->decimal('price_per_product');
+                ->on('companies');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offer_products');
+        Schema::dropIfExists('contracts');
     }
 };

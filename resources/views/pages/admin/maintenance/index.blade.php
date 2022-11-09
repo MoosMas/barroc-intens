@@ -9,7 +9,7 @@
 				<li class="nav-item" role="presentation">
 					<button class="nav-link" id="tabs-table-tab" data-bs-toggle="tab" data-bs-target="#tabs-table"
 					        type="button" role="tab" aria-controls="tabs-table" aria-selected="true">
-						Nog in te plannen <span class="badge rounded-pill text-bg-danger">{{$requests->where('start', '')->count()}}</span>
+						Nog in te plannen <span class="badge rounded-pill text-bg-danger">{{count($incompleteRequests)}}</span>
 					</button>
 				</li>
 				<li class="nav-item" role="presentation">
@@ -38,14 +38,14 @@
 				</thead>
 
 				<tbody class="table-group-divider">
-					@foreach($requests->where('start', '') as $request)
+					@foreach($incompleteRequests as $request)
 						<tr>
-							<td>{{$request->id}}</td>
-							<td>{{$request->company->name}}</td>
-							<td class="table-longtext-column">{{Str::limit($request->remark, 50)}}</td>
-							<td>{{$request->created_at}}</td>
+							<td>{{$requests[$request-1]->id}}</td>
+							<td>{{$requests[$request-1]->company->name}}</td>
+							<td class="table-longtext-column">{{Str::limit($requests[$request-1]->remark, 50)}}</td>
+							<td>{{$requests[$request-1]->created_at}}</td>
 							<td class="text-center">
-								<a href="{{route('maintenance.edit', $request)}}"
+								<a href="{{route('maintenance.edit', $requests[$request-1])}}"
 								   class="btn btn-sm btn-outline-secondary">
 									<i class="bi bi-pencil-fill"></i>
 								</a>

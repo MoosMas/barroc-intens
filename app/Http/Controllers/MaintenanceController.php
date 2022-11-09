@@ -22,9 +22,26 @@ class MaintenanceController extends Controller
             $request->end = $request->getEndTime();
             return $request;
         });
+        
+        $incompleteRequests = [];
+        foreach ($requests as $request){
+            if (empty($request->start)) {
+                array_push($incompleteRequests, $request->id);
+            }
+            elseif (empty($request->duration_minutes)) {
+                array_push($incompleteRequests, $request->id);
+            }
+            elseif (empty($request->employee_id)) {
+                array_push($incompleteRequests, $request->id);
+            }
+            else {
+                continue;
+            }
+        }
 
         return view('pages.admin.maintenance.index', [
-            'requests' => $requests
+            'requests' => $requests,
+            'incompleteRequests' => $incompleteRequests
         ]);
     }
 

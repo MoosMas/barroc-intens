@@ -17,34 +17,100 @@ class ProductSeeder extends Seeder
     {
         $products = [
             [
-                'name' => 'Koffiebonen (klein)',
-                'description' => 'Onze nieuwe koffiebonen smaken dubbel zo goed! Ontdek het dubbel gecertificeerde Douwe Egberts Biologisch & Fairtrade assortiment. Dubbel gecertificeerd, dat smaakt zo dubbel zo goed! Douwe Egberts Dark Roast Espresso Biologisch & Fairtrade is een melange samengesteld uit 100% Fairtrade gecertificeerde Arabica en Robusta bonen. De bonen zijn donker gebrand en krachtige smaak. Het smaakprofiel wordt gekenmerkt door tonen van toffee en chocolade en hinten van dadels en rijpe pruim. De melange is uitstekend geschikt voor een smaakvolle espresso en lungo, maar vormt ook een solide basis voor een robuuste cappuccino of koffie verkeerd.',
-                'price' => 10,
-                'product_category_id' => 2
-            ],
-            [
-                'name' => 'Koffiebonen (groot)',
-                'description' => 'Onze nieuwe koffiebonen smaken dubbel zo goed! Ontdek het dubbel gecertificeerde Douwe Egberts Biologisch & Fairtrade assortiment. Dubbel gecertificeerd, dat smaakt zo dubbel zo goed! Douwe Egberts Dark Roast Espresso Biologisch & Fairtrade is een melange samengesteld uit 100% Fairtrade gecertificeerde Arabica en Robusta bonen. De bonen zijn donker gebrand en krachtige smaak. Het smaakprofiel wordt gekenmerkt door tonen van toffee en chocolade en hinten van dadels en rijpe pruim. De melange is uitstekend geschikt voor een smaakvolle espresso en lungo, maar vormt ook een solide basis voor een robuuste cappuccino of koffie verkeerd.',
-                'price' => 15,
-                'product_category_id' => 2
-            ],
-            [
-                'name' => 'Espresso koffiezet apparaat',
-                'description' => 'Ben je op zoek naar een perfecte koffie-ervaring? Dat kan heel makkelijk. Met de Barroc intenst koffie machine. Een uniek systeem, dat als enige een hoge capaciteit combineert met een hoge kwaliteit koffie (tot wel 700 kopjes per uur!). Met het gesloten zetsysteem geniet iedereen op elk moment van een perfecte koffie.',
-                'price' => 300,
+                'name' => 'Barroc Intens Italian Light',
+                'description' => 'S234FREKT',
+                'price' => 499,
+                'installation_costs' => 289,
+                'amount_in_stock' => 7836,
                 'product_category_id' => 1
             ],
             [
-                'name' => 'Nespresso koffiezet apparaat',
-                'description' => 'Ben je op zoek naar een perfecte koffie-ervaring? Dat kan heel makkelijk. Met de Barroc intenst koffie machine. Een uniek systeem, dat als enige een hoge capaciteit combineert met een hoge kwaliteit koffie (tot wel 700 kopjes per uur!). Met het gesloten zetsysteem geniet iedereen op elk moment van een perfecte koffie.',
-                'price' => 300,
+                'name' => 'Barroc Intens Italian',
+                'description' => 'S234KNDPF',
+                'price' => 599,
+                'installation_costs' => 289,
+                'amount_in_stock' => 7836,
                 'product_category_id' => 1
             ],
             [
-                'name' => 'Aansluitkosten',
-                'description' => 'Aansluitkosten die nieuwe klanten eenmalig betalen.',
-                'price' => 50,
-                'product_category_id' => 4
+                'name' => 'Barroc Intens Italian Deluxe',
+                'description' => 'S234NNBMV',
+                'price' => 799,
+                'installation_costs' => 375,
+                'amount_in_stock' => 7836,
+                'product_category_id' => 1
+            ],
+            [
+                'name' => 'Barroc Intens Italian Deluxe Special',
+                'description' => 'S234MMPLA',
+                'price' => 999,
+                'installation_costs' => 375,
+                'amount_in_stock' => 7836,
+                'product_category_id' => 1
+            ],
+            [
+                'name' => 'Espresso Beneficio (bonen)',
+                'description' => 'Een toegankelijke en zachte koffie.  Hij is afkomstig van de Finca El Limoncillo, een weelderige plantage aan de rand van het regenwoud in de Matagalpa regio in Nicaragua.',
+                'price' => 21.60,
+                'installation_costs' => 0,
+                'amount_in_stock' => 7836,
+                'product_category_id' => 2
+            ],
+            [
+                'name' => 'Espresso Beneficio (gemalen)',
+                'description' => 'Een toegankelijke en zachte koffie.  Hij is afkomstig van de Finca El Limoncillo, een weelderige plantage aan de rand van het regenwoud in de Matagalpa regio in Nicaragua.',
+                'price' => 21.60,
+                'installation_costs' => 0,
+                'amount_in_stock' => 7836,
+                'product_category_id' => 2
+            ],
+            [
+                'name' => 'Yellow Bourbon Brasil (bonen)',
+                'description' => 'Koffie van de oorspronkelijke koffiestruik (de Bourbon) met gele koffiebessen. Deze zeldzame koffie heeft de afgelopen 20 jaar steeds meer erkenning gekregen en vele prijzen gewonnen.',
+                'price' => 23.20,
+                'installation_costs' => 0,
+                'amount_in_stock' => 7836,
+                'product_category_id' => 2
+            ],
+            [
+                'name' => 'Yellow Bourbon Brasil (gemalen)',
+                'description' => 'Koffie van de oorspronkelijke koffiestruik (de Bourbon) met gele koffiebessen. Deze zeldzame koffie heeft de afgelopen 20 jaar steeds meer erkenning gekregen en vele prijzen gewonnen.',
+                'price' => 23.20,
+                'installation_costs' => 0,
+                'amount_in_stock' => 7836,
+                'product_category_id' => 2
+            ],
+            [
+                'name' => 'Espresso Roma (bonen)',
+                'description' => 'Een Italiaanse espresso met een krachtig karakter en een aromatische afdronk.',
+                'price' => 20.80,
+                'installation_costs' => 0,
+                'amount_in_stock' => 7836,
+                'product_category_id' => 2
+            ],
+            [
+                'name' => 'Espresso Roma (gemalen)',
+                'description' => 'Een Italiaanse espresso met een krachtig karakter en een aromatische afdronk.',
+                'price' => 20.80,
+                'installation_costs' => 0,
+                'amount_in_stock' => 7836,
+                'product_category_id' => 2
+            ],
+            [
+                'name' => 'Red Honey Honduras (bonen)',
+                'description' => 'De koffie is geproduceerd volgens de honey-methode. Hierbij wordt de koffieboon in haar vruchtvlees gedroogd, waardoor de zoete fruitsmaak diep in de boon trekt. Dit levert een éxtra zoete koffie op.',
+                'price' => 27.80,
+                'installation_costs' => 0,
+                'amount_in_stock' => 7836,
+                'product_category_id' => 2
+            ],
+            [
+                'name' => 'Red Honey Honduras (gemalen)',
+                'description' => 'De koffie is geproduceerd volgens de honey-methode. Hierbij wordt de koffieboon in haar vruchtvlees gedroogd, waardoor de zoete fruitsmaak diep in de boon trekt. Dit levert een éxtra zoete koffie op.',
+                'price' => 27.80,
+                'installation_costs' => 0,
+                'amount_in_stock' => 7836,
+                'product_category_id' => 2
             ],
         ];
         

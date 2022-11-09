@@ -4,7 +4,7 @@
     <div class="pt-5">
         <h1>Producten</h1>
         <h2>Product bewerken</h2>
-        
+
         @include('components.flash-message')
 
         <form method="post" action="{{route('products.update', $product)}}">
@@ -12,7 +12,7 @@
             @method('PUT')
 
             <div class="form-group mb-3">
-                <label for="name" class="form-label">Productnaam</label>
+                <label for="name" class="form-label">Product naam</label>
                 <input type="text" name="name" class="form-control" id="name" value="{{$product->name}}">
             </div>
 
@@ -27,6 +27,23 @@
                     <span class="input-group-text">&euro;</span>
                     <input type="text" name="price" class="form-control" value="{{$product->price}}">
                 </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="installation_costs" class="form-label">Installatie kosten</label>
+                <div class="input-group">
+                    <span class="input-group-text">&euro;</span>
+                    <input type="text" name="installation_costs" class="form-control" value="{{$product->installation_costs}}">
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="amount_in_stock" class="form-label">Voorraad</label>
+                <input type="text" name="amount_in_stock" class="form-control" id="amount_in_stock" value="{{$product->amount_in_stock}}">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="ordered" class="form-label">Besteld</label>
+                <input type="text" name="ordered" class="form-control" id="ordered" value="{{$product->ordered}}">
             </div>
 
             <div class="form-group mb-3">

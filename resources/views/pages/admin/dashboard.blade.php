@@ -5,7 +5,10 @@
         <h1>Overzicht klanten</h1>
         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam facilis quasi ducimus. Exercitationem impedit unde autem, a nam voluptate inventore perspiciatis et atque est iusto nemo, officiis facilis modi!</p>
         <a href="/welcome" class="btn btn-warning  float-end mb-5">Go somewhere</a>
-    </div>    
+        @if(Auth::user() && Auth::user()->role->id == 12)
+            <p class="text-primary text-opacity-50">Voor een verwijderingsverzoek: Stuur een mail naar privacy@barroc.it</p>
+        @endif
+    </div>
         <table class="table table-hover">
             <thead>
             <tr>

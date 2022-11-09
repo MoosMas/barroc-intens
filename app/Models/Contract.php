@@ -15,4 +15,9 @@ class Contract extends Model
     {
         return $this->belongsToMany(Product::class)->withPivot('amount', 'price_per_product');
     }
+    
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

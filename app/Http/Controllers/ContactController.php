@@ -93,7 +93,7 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $contacts = new Contact();
+        $contacts = Contact::findOrFail($id);
         $contacts->name = $request->name;
         $contacts->company_name = $request->company_name;
         $contacts->email = $request->email;

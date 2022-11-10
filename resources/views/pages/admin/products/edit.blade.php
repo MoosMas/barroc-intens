@@ -43,7 +43,14 @@
 
             <div class="form-group mb-3">
                 <label for="ordered" class="form-label">Besteld</label>
-                <input type="text" name="ordered" class="form-control" id="ordered" value="{{$product->ordered}}">
+                <input type="number" name="ordered" class="form-control" id="ordered" value="{{$product->ordered}}">
+                
+                <div class="form-check mt-3 d-none" id="order-permission-container">
+                    <input class="form-check-input" type="checkbox" id="order-permission">
+                    <label class="form-check-label" for="order-permission">
+                        Het hoofd van de afdeling heeft de bestelling goedgekeurd
+                    </label>
+                </div>
             </div>
 
             <div class="form-group mb-3">
@@ -76,5 +83,17 @@
             </div>
         </form>
     </div>
+
+    <script>
+        $( '#ordered' ).on('input', ( e ) => {
+            if (Number(e.target.value) > 5000) {
+                console.log('> 5000');
+                $('#order-permission-container').removeClass('d-none');
+            }
+            else {
+                $('#order-permission-container').addClass('d-none');
+            }
+        });
+    </script>
 
 @endsection

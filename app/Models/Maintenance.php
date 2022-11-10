@@ -13,6 +13,8 @@ class Maintenance extends Model
 
     protected $table = 'maintenance_appointments';
     
+    protected $guarded = [];
+    
     protected $casts = [
         'start' => 'datetime'
     ];

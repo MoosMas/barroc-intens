@@ -69,8 +69,9 @@ class CompanyController extends Controller
     public function show($id)
     {
         $company = Company::findOrFail($id);
+        
         return view('pages.admin.companies.show', [
-            'company' => $company
+            'company' => $company,
         ]);
     }
 

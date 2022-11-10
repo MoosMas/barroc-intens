@@ -53,11 +53,10 @@ class CompanyController extends Controller
             }
         $company->contact_id = $request->contact_id;
         $company->save();
-        
+
         return redirect()
-            ->route('companies.index')
-            ->with('message', " $company->name is succesvol toegevoegd!");
-                
+            ->route('companies.index');
+
 
     }
 
@@ -87,7 +86,7 @@ class CompanyController extends Controller
        //dd(now());
         return view('pages.admin.companies.edit', [
             'company' => $company]);
-        
+
     }
 
     /**
@@ -113,10 +112,9 @@ class CompanyController extends Controller
             }
         $company->contact_id = $request->contact_id;
         $company->save();
-        
+
         return redirect()
-            ->route('companies.index')
-            ->with('message', "Item $company->name is succesvol aangepast!");
+            ->route('companies.index');
     }
 
     /**
@@ -129,7 +127,6 @@ class CompanyController extends Controller
     {
         Company::destroy($id);
         return redirect()
-        ->route('companies.index')
-        ->with('message', "item succesvol verwijderd!");
+        ->route('companies.index');
     }
 }

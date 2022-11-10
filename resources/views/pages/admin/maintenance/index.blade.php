@@ -9,7 +9,7 @@
 				<li class="nav-item" role="presentation">
 					<button class="nav-link" id="tabs-table-tab" data-bs-toggle="tab" data-bs-target="#tabs-table"
 					        type="button" role="tab" aria-controls="tabs-table" aria-selected="true">
-						Nog in te plannen <span class="badge rounded-pill text-bg-danger">{{count($incompleteRequests)}}</span>
+						Nog in te plannen @if($incompleteRequests)<span class="badge rounded-pill text-bg-danger">{{count($incompleteRequests)}}</span>@endif
 					</button>
 				</li>
 				<li class="nav-item" role="presentation">

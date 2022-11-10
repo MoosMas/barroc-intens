@@ -36,6 +36,16 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="form-group mb-3">
+				<label for="employee_id" class="form-label">Medewerker</label>
+				<select class="form-select" id="employee_id" name="employee_id">
+					<option selected disabled>Selecteer een medewerker</option>
+					@foreach($employees as $employee)
+						<option value="{{$employee->id}}" @if($maintenance->employee_id == $employee->id) selected @endif>{{$employee->name}}</option>
+					@endforeach
+				</select>
+			</div>
 
 			<input type="submit" value="Opslaan" class="btn btn-primary">
 			

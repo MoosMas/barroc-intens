@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Maintenance;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -100,9 +101,11 @@ class MaintenanceController extends Controller
     public function edit($id)
     {
         $maintenance = Maintenance::find($id);
-
+        $employees = User::all()->where('role_id', 10);
+        
         return view('pages.admin.maintenance.edit', [
-            'maintenance' => $maintenance
+            'maintenance' => $maintenance,
+            'employees' => $employees
         ]);
     }
 
@@ -125,7 +128,7 @@ class MaintenanceController extends Controller
         $maintenance->duration_minutes = $request->duration_minutes;
 
         // TODO: Add form fields for these properties
-//        $maintenance->employee_id = $request->employee_id;
+        $maintenance->employee_id = $request->employee_id;
 //        $maintenance->work_order_id = $request->work_order_id;
 
         $maintenance->save();

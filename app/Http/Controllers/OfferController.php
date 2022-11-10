@@ -18,7 +18,7 @@ class OfferController extends Controller
     public function index()
     {
         $offers = Offer::all();
-        
+
         return view('pages.admin.offers.index', [
             'offers' => $offers
         ]);
@@ -33,7 +33,7 @@ class OfferController extends Controller
     {
         $contacts = Contact::all();
         $products = Product::all();
-        
+
         return view('pages.admin.offers.create', [
             'contacts' => $contacts,
             'products' => $products
@@ -64,10 +64,10 @@ class OfferController extends Controller
                 $offerProduct->save();
             }
         }
-        
+
         return redirect()
             ->route('offers.index');
-        
+
     }
 
     /**
@@ -92,7 +92,7 @@ class OfferController extends Controller
         $offer = Offer::with('products')->find($id);
         $contacts = Contact::all();
         $products = Product::all();
-        
+
         return view('pages.admin.offers.edit', [
             'offer' => $offer,
             'contacts' => $contacts,
@@ -112,7 +112,7 @@ class OfferController extends Controller
         $offer = Offer::find($id);
         $offer->contact_id = $request->contact_id;
         $offer->save();
-        
+
         $dataToSync = collect($request->products)->mapWithKeys(function($product, $key){
             $dbProduct = Product::find($product['product_id']);
             return [
@@ -122,11 +122,11 @@ class OfferController extends Controller
                 ]
             ];
         });
-        
-        $offer->products()->sync($dataToSync);        
+
+        $offer->products()->sync($dataToSync);
 
         return redirect()
-            ->route('offers.edit', $id);
+            ->route('offers.index');
     }
 
     /**

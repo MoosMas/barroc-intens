@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('price');
             $table->decimal('installation_costs')->nullable();
             $table->integer('amount_in_stock');
-            $table->boolean('ordered')->default(0);
+            $table->integer('ordered')->default(0);
             $table->foreignId('product_category_id')
                 ->references('id')
                 ->on('product_categories');

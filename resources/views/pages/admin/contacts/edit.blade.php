@@ -29,12 +29,13 @@
 
         <div class="form-group mb-3">
             <p><label for="message">uw bericht:</label></p>
-            <textarea id="message" name="message" rows="4" cols="50"></textarea>
+            <textarea id="message" name="message" rows="4" cols="50" >{{$contact->message}}</textarea>
         </div>
 
         <div class="form-group">
             <label for="">afgehandeld</label>
-            <input value="{{$contact->handled_at ?? '-'}}" type="date" name="handled_at" class="form-control">
+            <input type="date" name="handled_at" class="form-control"
+                   value="{{$contact->handled_at ? $contact->handled_at->toDateString() : ''}}" >
         </div>
 
         <input type="submit" value="Opslaan" class="btn btn-primary mb-3">

@@ -47,8 +47,10 @@
                         <tr>
                             <th>{{$product->name}}</th>
                             <td>&euro;{{$product->price}}</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <td>&euro;{{$product->installation_costs}}</td>
+                            <td>{{$product->amount_in_stock}}@if($product->amount_in_stock < 20)<span class="text-danger fw-bold"><i class="px-2 bi bi-exclamation-triangle"></i></span> @endif</td>
+                            <td>{{$product->ordered}}</td>
+                            <td>{{$product->catagory}}</td>
                         </tr>
                     </tbody>
                 </table>

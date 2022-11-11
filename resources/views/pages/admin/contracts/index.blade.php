@@ -29,9 +29,7 @@
                     <a href="{{route('contracts.show', $contract)}}" class="btn btn-sm btn-outline-secondary me-3">
                         <i class="bi bi-eye"></i>
                     </a>
-                    <a href="{{route('contracts.edit', $contract)}}" class="btn btn-sm btn-outline-secondary">
-                        <i class="bi bi-pencil-fill"></i>
-                    </a>
+                   
                 </td>
             </tr>
         @endforeach

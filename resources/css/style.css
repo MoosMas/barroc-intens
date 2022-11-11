@@ -37,3 +37,7 @@ body{
         flex-direction: column;
     }
 }
+
+.nav-link{
+    font-family: 'Big Shoulders Display';font-size: 1.25rem !important;
+}

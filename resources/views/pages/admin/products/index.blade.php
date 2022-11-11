@@ -16,9 +16,9 @@
 				<th>Naam</th>
 				<th>Beschrijving</th>
 				<th>Prijs</th>
-                <th>installatie kosten</th>
-                <th>vooraad</th>
-                <th>besteld</th>
+                <th>Installatiekosten</th>
+                <th>Voorraad</th>
+                <th>Besteld</th>
 				<th>Categorie</th>
 				<th class="sorter-false"></th>
 			</tr>
@@ -32,7 +32,7 @@
 					<td class="table-longtext-column">{{Str::limit($product->description, 50)}}</td>
 					<td>&euro;{{$product->price}}</td>
                     <td>{{$product->installation_costs}}</td>
-                    <td>{{$product->amount_in_stock}}</td>
+                    <td class="@if($product->amount_in_stock < 20) badge rounded-pill text-bg-danger @endif">{{$product->amount_in_stock}}</td>
                     <td>{{$product->ordered}}</td>
 					<td>{{$product->category->name}}</td>
 					<td class="text-center">

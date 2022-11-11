@@ -15,4 +15,9 @@ class Company extends Model
     {
         return $this->belongsTo(User::class, 'contact_id');
     }
+    
+    public function contracts()
+    {
+        return $this->hasMany(Contract::class);
+    }
 }

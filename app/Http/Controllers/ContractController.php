@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\ContractProduct;
+use App\Models\Maintenance;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Contract;
 
@@ -49,6 +51,21 @@ class ContractController extends Controller
     public function store(Request $request)
     {
         $contract = Contract::create($request->except(['products', '_token']));
+        
+        $periodicMaintenance = [];
+        
+        for ($i = 1; $i <= 2; $i++) {
+            $periodicMaintenance[$i] = [
+                'company_id' => $request->company_id,
+                'title' => 'Periodiek onderhoud',
+                'remark' => 'Het periodieke onderhoud dat inbegrepen is bij het contract.',
+                'start' => Carbon::parse($request->start_date)->addMonths(4*$i)
+            ];
+        }
+        
+        foreach ($periodicMaintenance as $appointment) {
+            Maintenance::create($appointment);
+        }
         
         if ($request->filled('products')) {
             foreach ($request->products as $product) {

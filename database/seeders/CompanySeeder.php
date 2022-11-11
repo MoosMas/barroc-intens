@@ -19,7 +19,7 @@ class CompanySeeder extends Seeder
     {
         $faker = Faker::create();
 
-        foreach (range(1, 10) as $index) {
+        foreach (range(1, 190) as $index) {
             $company = new Company();
             $company->name = $faker->company;
             $company->phone = $faker->phoneNumber;
@@ -27,7 +27,12 @@ class CompanySeeder extends Seeder
             $company->house_number = $faker->buildingNumber;
             $company->city = $faker->city;
             $company->country_code = $faker->countryCode;
-            $company->bkr_checked_at = null;
+            if ($index < 15) {
+                $company->bkr_checked_at = $faker->dateTimeBetween('-11 months', '-1 month');
+            }
+            else {
+                $company->bkr_checked_at = null;
+            }
             $company->contact_id = User::all()->where('role_id', 12)->random()->id;
             $company->save();
         }

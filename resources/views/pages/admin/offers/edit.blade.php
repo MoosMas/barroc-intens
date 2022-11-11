@@ -77,18 +77,18 @@
 			<input type="submit" value="Save Item" class="btn btn-primary">
 		</form>
 	</div>
-	
+
 	<script>
 		let container = document.getElementById( 'products-table' );
 		let template = document.getElementById( 'products-template' );
 		let count = $('#products-table tr').length;
 		let products = {!! json_encode($offer->products) !!};
-		
+
 		function getOfferProducts(){
 			// products = ;
 			return products;
 		}
-		
+
 		function addProduct() {
 			let clone = template.content.cloneNode( true )
 			container.appendChild( clone );

@@ -46,7 +46,7 @@
 							<tr>
 								<td>{{$product->name}}</td>
 								<td>{{$product->pivot->amount}}</td>
-								<td>&euro;{{$product->price}}</td>
+								<td>&euro;{{$product->pivot->price_per_product}}</td>
 								<td>{{$product->installation_costs}}</td>
 								<td>{{$product->ordered}}</td>
 							</tr>

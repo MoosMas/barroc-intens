@@ -37,10 +37,10 @@
                       <tr>
                         <th scope="col">Naam</th>
                         <th scope="col">Prijs</th>
-                        <th scope="col">Instalatie kosten</th>
+                        <th scope="col">Installatie kosten</th>
                         <th scope="col">Aantal beschikbaar</th>
                         <th scope="col">Aantal besteld</th>
-                        <th scope="col">Product catogorie</th>
+                        <th scope="col">Product categorie</th>
                       </tr>
                     </thead>
                     <tbody>

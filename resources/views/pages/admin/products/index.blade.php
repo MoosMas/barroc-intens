@@ -32,7 +32,7 @@
 					<td class="table-longtext-column">{{Str::limit($product->description, 50)}}</td>
 					<td>&euro;{{$product->price}}</td>
                     <td>{{$product->installation_costs}}</td>
-                    <td class="@if($product->amount_in_stock < 20) badge rounded-pill text-bg-danger @endif">{{$product->amount_in_stock}}</td>
+                    <td>{{$product->amount_in_stock}}@if($product->amount_in_stock < 20)<span class="text-danger fw-bold"><i class="px-2 bi bi-exclamation-triangle"></i></span> @endif</td>
                     <td>{{$product->ordered}}</td>
 					<td>{{$product->category->name}}</td>
 					<td class="text-center">

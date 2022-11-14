@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
         }
         
         $faker = Faker::create();
-        foreach (range(1,20) as $index) {
+        foreach (range(1,60) as $index) {
             $user = new User();
             $user->name = $faker->name;
             $user->email = $faker->email;

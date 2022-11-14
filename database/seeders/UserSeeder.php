@@ -57,6 +57,9 @@ class UserSeeder extends Seeder
             if($index < 13){
                 $user->role_id = $index;
             }
+            elseif ($index < 20) {
+                $user->role_id = 10;
+            }
             else {
                 $user->role_id = 12;
             }

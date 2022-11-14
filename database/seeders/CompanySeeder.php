@@ -18,6 +18,7 @@ class CompanySeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
+        $customers = User::all()->where('role_id', 12);
 
         foreach (range(1, 190) as $index) {
             $company = new Company();
@@ -33,7 +34,7 @@ class CompanySeeder extends Seeder
             else {
                 $company->bkr_checked_at = null;
             }
-            $company->contact_id = User::all()->where('role_id', 12)->random()->id;
+            $company->contact_id = $customers->random()->id;
             $company->save();
         }
 

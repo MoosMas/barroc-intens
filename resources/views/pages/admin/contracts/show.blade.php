@@ -37,7 +37,7 @@
 							<th scope="col">Aantal besteld</th>
 							<th scope="col">Prijs/stuk</th>
 							<th scope="col">Installatie kosten</th>
-							<th scope="col">Aantal</th>
+							<th scope="col">Totaalprijs</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -47,11 +47,20 @@
 								<td>{{$product->name}}</td>
 								<td>{{$product->pivot->amount}}</td>
 								<td>&euro;{{$product->pivot->price_per_product}}</td>
-								<td>{{$product->installation_costs}}</td>
-								<td>{{$product->ordered}}</td>
+								<td>&euro;{{$product->installation_costs}}</td>
+								<td>&euro;{{$product->pivot->amount * $product->pivot->price_per_product}}</td>
 							</tr>
 						@endforeach
 					</tbody>
+					<tfoot class="table-group-divider fw-bold">
+						<tr>
+							<td></td>
+							<td>{{$contract->products->pluck('pivot.amount')->sum()}}</td>
+							<td></td>
+							<td></td>
+							<td>&euro;{{$contract->totalCost()}}</td>
+						</tr>
+					</tfoot>
 				</table>
 			</div>
 		</div>

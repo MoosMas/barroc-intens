@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             CompanySeeder::class,
             ContractSeeder::class,
             InvoiceSeeder::class,
+            MaintenanceSeeder::class
         ]);
     }
 }

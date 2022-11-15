@@ -53,7 +53,7 @@ class UserSeeder extends Seeder
             $user = new User();
             $user->name = $faker->name;
             $user->email = $faker->email;
-            $user->password = Hash::make($faker->password);
+            $user->password = '$2y$10$F4KYIOQCKPXFuk8NLaQYnegddTkJgkY/rMPb05EiSxk38N5ZguciO';
             if($index < 13){
                 $user->role_id = $index;
             }

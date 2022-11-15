@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             InvoiceSeeder::class,
             MaintenanceSeeder::class,
             ContactSeeder::class,
+            OfferSeeder::class,
         ]);
     }
 }

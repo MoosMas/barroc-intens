@@ -22,13 +22,16 @@
     <tbody class="table-group-divider">
         @foreach($offers as $offer)
             <tr>
+                <td>{{$offer->contact->company_name}}</td>
                 <td>{{$offer->amount}}</td>
                 <td>{{$offer->price_per_product}}</td>
                 <td class="text-center d-flex">
                     <a href="{{route('offers.show', $offer)}}" class="btn btn-sm btn-outline-secondary me-3">
                         <i class="bi bi-eye"></i>
                     </a>
-                    <a href="{{route('offers.edit', $offer)}}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{route('offers.edit', $offer)}}" class="btn btn-primary">
+                        <i class="bi bi-pencil-fill"></i>
+                    </a>
                 </td>
             </tr>
         @endforeach

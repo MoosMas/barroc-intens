@@ -16,7 +16,7 @@
 	<table id="data-table" class="table table-striped table-hover">
 		<thead>
 			<tr>
-				<th>Voornaam</th>
+				<th>Naam</th>
 				<th>Telefoon</th>
 				<th>Straat</th>
 				<th>Huisnummer</th>

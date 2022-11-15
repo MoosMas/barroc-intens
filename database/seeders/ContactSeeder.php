@@ -20,14 +20,16 @@ class ContactSeeder extends Seeder
 
         foreach (range(1, 10) as $index) {
             $contact = new Contact();
-            $contact->id = $faker->id;
             $contact->name = $faker->name;
-            $contact->company_name = $faker->company_name;
+            $contact->company_name = $faker->company;
             $contact->email = $faker->email;
-            $contact->phone = $faker->phone;
-            $contact->message = $faker->message;
-            $contact->handled_at = $faker->handled_at;
-            $contact->notes = $faker->notes;
+            $contact->phone = $faker->phoneNumber;
+            $contact->message = $faker->sentence;
+            
+            if ($index < 6) {
+                $contact->handled_at = $faker->dateTimeBetween('-2 weeks', '-3 days');
+            }
+            
             $contact->save();
         }
 

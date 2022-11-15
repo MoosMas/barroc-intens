@@ -35,7 +35,7 @@ class ContractController extends Controller
     {
         $companies = Company::all();
         $products = Product::all();
-        
+
         return view('pages.admin.contracts.create', [
             'companies' => $companies,
             'products' => $products
@@ -51,9 +51,9 @@ class ContractController extends Controller
     public function store(Request $request)
     {
         $contract = Contract::create($request->except(['products', '_token']));
-        
+
         $periodicMaintenance = [];
-        
+
         for ($i = 1; $i <= 2; $i++) {
             $periodicMaintenance[$i] = [
                 'company_id' => $request->company_id,
@@ -62,11 +62,11 @@ class ContractController extends Controller
                 'start' => Carbon::parse($request->start_date)->addMonths(4*$i)
             ];
         }
-        
+
         foreach ($periodicMaintenance as $appointment) {
             Maintenance::create($appointment);
         }
-        
+
         if ($request->filled('products')) {
             foreach ($request->products as $product) {
                 $dbProduct = Product::find($product['product_id']);
@@ -78,9 +78,9 @@ class ContractController extends Controller
                 $contractProduct->save();
             }
         }
-        
+
         return redirect()
-            ->route('contracts.create');
+            ->route('contracts.index');
     }
 
     /**

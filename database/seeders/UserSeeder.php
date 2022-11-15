@@ -49,13 +49,16 @@ class UserSeeder extends Seeder
         }
         
         $faker = Faker::create();
-        foreach (range(1,20) as $index) {
+        foreach (range(1,60) as $index) {
             $user = new User();
             $user->name = $faker->name;
             $user->email = $faker->email;
             $user->password = Hash::make($faker->password);
             if($index < 13){
                 $user->role_id = $index;
+            }
+            elseif ($index < 20) {
+                $user->role_id = 10;
             }
             else {
                 $user->role_id = 12;

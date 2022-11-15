@@ -22,20 +22,22 @@ class ContractSeeder extends Seeder
     {
         $faker = Faker::create();
         $productCount = Product::all()->count();
+        $companiesWithoutContracts = Company::doesntHave('contracts')->get();
+        $allProducts = Product::all();
 
         foreach (range(1, 150) as $index) {
             $startDate = $faker->dateTimeBetween('-11 months', '-1 month');
             $endDate = Carbon::parse($startDate)->addMonths(12);
             
             $contract = new Contract();
-            $contract->company_id = Company::doesntHave('contracts')->get()->random()->id;
+            $contract->company_id = $companiesWithoutContracts->random()->id;
             $contract->start_date = $startDate;
             $contract->end_date = $endDate;
             $contract->save();
             
             $productsToAdd = rand(1, 5);
             foreach (range(1, $productsToAdd) as $productsIndex){
-                $dbProduct = Product::all()->random();
+                $dbProduct = $allProducts->random();
                 $contractProduct = new ContractProduct();
                 $contractProduct->contract_id = $contract->id;
                 $contractProduct->product_id = $dbProduct->id;

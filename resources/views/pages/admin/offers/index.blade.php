@@ -14,7 +14,7 @@
         <tr>
             <th>Bedrijf</th>
             <th>Datum aangemaakt</th>
-            <th>Datum betaald</th>
+            <th>Totaalprijs</th>
             <th class="sorter-false"></th>
         </tr>
     </thead>
@@ -22,13 +22,13 @@
     <tbody class="table-group-divider">
         @foreach($offers as $offer)
             <tr>
-                <td>{{$offer->amount}}</td>
-                <td>{{$offer->price_per_product}}</td>
+                <td>{{$offer->contact->company_name}}</td>
+                <td>{{$offer->created_at}}</td>
+                <td>&euro;{{$offer->totalCost()}}</td>
                 <td class="text-center d-flex">
-                    <a href="{{route('offers.show', $offer)}}" class="btn btn-sm btn-outline-secondary me-3">
-                        <i class="bi bi-eye"></i>
+                    <a href="{{route('offers.edit', $offer)}}" class="btn btn-primary">
+                        <i class="bi bi-pencil-fill"></i>
                     </a>
-                    <a href="{{route('offers.edit', $offer)}}" class="btn btn-sm btn-warning">Edit</a>
                 </td>
             </tr>
         @endforeach

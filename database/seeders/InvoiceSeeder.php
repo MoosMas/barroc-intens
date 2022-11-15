@@ -21,6 +21,9 @@ class InvoiceSeeder extends Seeder
     {
         $faker = Faker::create();
 
+        $companies = Company::all();
+        $allProducts = Product::all();
+        
         foreach (range(1, 10) as $index) {
             $invoice = new CustomInvoice();
             $invoice->date = $faker->dateTimeBetween('-11 months', '-1 month');
@@ -32,13 +35,13 @@ class InvoiceSeeder extends Seeder
                 $invoice->paid_at = null;
             }
 
-            $invoice->company_id = Company::all()->random()->id;
+            $invoice->company_id = $companies->random()->id;
 
             $invoice->save();
 
             $productsToAdd = rand(1, 5);
             foreach (range(1, $productsToAdd) as $productsIndex){
-                $dbProduct = Product::all()->random();
+                $dbProduct = $allProducts->random();
                 $invoiceProduct = new CustomInvoiceProduct();
                 $invoiceProduct->custom_invoice_id = $invoice->id;
                 $invoiceProduct->product_id = $dbProduct->id;

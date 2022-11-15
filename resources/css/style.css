@@ -32,6 +32,18 @@ body{
     flex-direction: row;
 }
 
+.card img{
+    width: 406px;
+    height: 277px;
+	min-height: 277px;
+	max-height: 277px;
+    object-fit: cover;
+}
+
+.card-body {
+	height: 174px;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1199.98px){
     .fc .fc-toolbar, .fc-header{
         flex-direction: column;

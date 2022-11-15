@@ -11,8 +11,7 @@
         <div class="card">
           <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
             data-mdb-ripple-color="light">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/belt.webp"
-              class="w-100" />
+            <img src="{{ asset($product->image_path) }}" class="w-100" />
               <div class="mask">
                 <div class="d-flex justify-content-start align-items-end h-100">
                   <h5><span class="badge bg-primary ms-2">New</span></h5>

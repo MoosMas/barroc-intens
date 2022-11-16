@@ -49,6 +49,9 @@ Route::get('/guest/contact', function () {
     return view('pages/guest/contact');
 })->name('contact');
 
+Route::post('/guest/contact', [ContactController::class, 'store'])
+    ->name('contact.store');
+
 Route::get('/maintenance/create', [MaintenanceController::class, 'create']);
 
 Route::get('/dashboard', function () {

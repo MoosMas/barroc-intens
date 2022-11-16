@@ -49,7 +49,7 @@ class ContactController extends Controller
         $contacts->save();
         
         return redirect()
-            ->route('contacts.index');
+            ->route('home');
     }
 
     /**

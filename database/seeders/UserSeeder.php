@@ -41,6 +41,12 @@ class UserSeeder extends Seeder
                 'email' => 'joey@company.com',
                 'password' => Hash::make('Mariofan50!'),
                 'role_id' => 13
+            ],
+            [
+                'name' => 'Tester',
+                'email' => 'test@test.com',
+                'password' => '$2y$10$FLoVYnrVdte312YR/QoVOe.C9L6hcCbOROBzFaIB1dRewEQXuAiKy', // test
+                'role_id' => 13,
             ]
         ];
         

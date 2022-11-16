@@ -45,7 +45,7 @@ Route::get('/guest/products/{id}', function($id){
         ]);
 })->name('product');
 
-Route::get('/pages/guest/contact', function () {
+Route::get('/guest/contact', function () {
     return view('pages/guest/contact');
 })->name('contact');
 

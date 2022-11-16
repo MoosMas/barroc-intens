@@ -41,15 +41,13 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $contacts = new Contact();
-        $contacts->id = Auth::user()->company->id;
         $contacts->name = $request->name;
         $contacts->company_name = $request->company_name;
         $contacts->email = $request->email;
         $contacts->phone = $request->phone;
         $contacts->message = $request->message;
-        $contacts->handled_at = $request->handled_at;
         $contacts->save();
-
+        
         return redirect()
             ->route('contacts.index');
     }

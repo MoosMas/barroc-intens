@@ -49,7 +49,8 @@ class ContactController extends Controller
         $contacts->save();
         
         return redirect()
-            ->route('home');
+            ->route('home')
+            ->with('success', 'Contactaanvrag succesvol verstuurd');
     }
 
     /**

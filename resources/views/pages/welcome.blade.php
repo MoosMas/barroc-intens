@@ -10,6 +10,7 @@
 @include('includes.nav')
 
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        @include('components.flash-message')
         <div class="col-md-8 p-lg-5 mx-auto my-5">
             <h1 class="display-4 fw-normal">SLOW ROAST COFFEE</h1>
                 <p class="lead fw-normal">Barroc intens levert de lekkerste koffie aan bedrijven, horeca- en speciaalzaken. Wil jij onze kwaliteitskoffie ook in jouw assortiment opnemen en/of aan kunnen bieden aan jouw klanten of werknemers? Maak dan een keuze hieronder.</p>

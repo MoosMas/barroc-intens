@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="pt-5 container mt-3 mb-3">
+        @include('components.flash-message')
         <form class="row g-3 w-50 mx-auto" action="{{route('contact.store')}}" method="POST">
             @csrf
             

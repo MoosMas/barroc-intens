@@ -74,7 +74,8 @@ class MaintenanceController extends Controller
         $maintenance_request->save();
 
         return redirect()
-            ->route('home');
+            ->route('home')
+            ->with('success', 'Storingsaanvraag succesvol verstuurd');
     }
 
     /**

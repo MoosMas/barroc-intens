@@ -20,6 +20,16 @@ class CompanySeeder extends Seeder
         $faker = Faker::create();
         $customers = User::all()->where('role_id', 12);
 
+        $testCompany = new Company();
+        $testCompany->name = 'Test Bedrijf';
+        $testCompany->phone = $faker->phoneNumber;
+        $testCompany->street = $faker->streetName;
+        $testCompany->house_number = $faker->buildingNumber;
+        $testCompany->city = $faker->city;
+        $testCompany->country_code = $faker->countryCode;
+        $testCompany->contact_id = 5;
+        $testCompany->save();
+        
         foreach (range(1, 190) as $index) {
             $company = new Company();
             $company->name = $faker->company;

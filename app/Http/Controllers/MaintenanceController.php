@@ -74,7 +74,7 @@ class MaintenanceController extends Controller
         $maintenance_request->save();
 
         return redirect()
-            ->route('maintenance.index');
+            ->route('home');
     }
 
     /**

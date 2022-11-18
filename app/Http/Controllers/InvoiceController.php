@@ -110,7 +110,12 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $invoice = CustomInvoice::find($id);
+        $invoice->paid_at = $request->paid_at;
+        $invoice->save();
+        
+        return redirect()
+            ->route('invoices.index');
     }
 
     /**

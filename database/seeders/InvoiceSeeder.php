@@ -24,15 +24,15 @@ class InvoiceSeeder extends Seeder
         $companies = Company::all();
         $allProducts = Product::all();
         
-        foreach (range(1, 10) as $index) {
+        foreach (range(1, 500) as $index) {
             $invoice = new CustomInvoice();
             $invoice->date = $faker->dateTimeBetween('-11 months', '-1 month');
 
-            if ($index < 10) {
-                $invoice->paid_at = $faker->dateTimeBetween('-11 months', '-1 month');;
+            if ($index < 121) {
+                $invoice->paid_at = null;
             }
             else{
-                $invoice->paid_at = null;
+                $invoice->paid_at = $faker->dateTimeBetween('-11 months', '-1 month');;
             }
 
             $invoice->company_id = $companies->random()->id;
